@@ -1,14 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 // images
 import Logo from '../../../assets/logo.png';
 
 // constnats
 import colors from '../../../constants/colors';
-
-FontAwesome.loadFont();
 
 export default function Navbar() {
     return (
@@ -19,16 +16,16 @@ export default function Navbar() {
                 style={styles.logoImage}
             />
             <View style={styles.detailContainer}>
-                <FontAwesome
+                {/* <FontAwesome
                     name="user-circle"
                     size={22}
                     color={colors.dark}
-                />
+                /> */}
                 <Text style={styles.userName}>Rachel Caires</Text>
-                <FontAwesome
+                {/* <FontAwesome
                     name="angle-down"
                     size={15}
-                />
+                /> */}
             </View>
         </View>
     )
