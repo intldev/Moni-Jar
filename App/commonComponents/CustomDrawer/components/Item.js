@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 12,
         marginVertical: 15,
-        color: colors.light
+        color: colors.light,
+        fontFamily: 'Calibre'
     },
     container: {
         marginVertical: 30,

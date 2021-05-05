@@ -19,11 +19,12 @@ const styles = StyleSheet.create({
     nameText: {
         fontSize: 17,
         color: colors.light,
-        fontWeight: 'bold',
+        fontFamily: 'Calibre-SemiBold'
     },
     usernameText: {
         fontSize: 12,
-        color: colors.light
+        color: colors.light,
+        fontFamily: 'Calibre'
     },
     usernameContainer: {
         marginTop: 10,

@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize',
         fontSize: 12,
         marginLeft: 15,
-        marginBottom: 1
+        marginBottom: 1,
+        fontFamily: 'Calibre'
     }
 })

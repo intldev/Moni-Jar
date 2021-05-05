@@ -14,6 +14,14 @@ export default function DrawerNavigator() {
         <Drawer.Navigator
             initialRouteName="Home"
             drawerContent={(props) => <CustomDrawer {...props} />}
+            drawerStyle={{
+                width: '85%',
+                height: '85%',
+                marginTop: '15%',
+                backgroundColor: 'transparent'
+            }}
+            drawerType="front"
+            drawerPosition="right"
         >
             <Drawer.Screen name="Home" component={HomeScreen} />
         </Drawer.Navigator>

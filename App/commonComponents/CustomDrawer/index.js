@@ -85,9 +85,11 @@ export default function CustomDrawerContent(props) {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 24
+        padding: 24,
     },
     drawerScrollView: {
-        backgroundColor: colors.dark
+        backgroundColor: colors.dark,
+        borderTopLeftRadius: 30,
+        borderBottomLeftRadius: 30
     }
 })

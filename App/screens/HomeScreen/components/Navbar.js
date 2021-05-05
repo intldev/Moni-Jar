@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     userName: {
-        fontSize: 16,
-        fontWeight: '600',
-        marginHorizontal: 12
+        fontSize: 19,
+        marginHorizontal: 12,
+        fontFamily: 'Calibre-SemiBold'
     }
 })
