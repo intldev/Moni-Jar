@@ -1,6 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
+// svgs
+import UserProfile from '../../../commonComponents/svgs/UserProfile';
+import AngleDown from '../../../commonComponents/svgs/AngleDown';
+
 // images
 import Logo from '../../../assets/logo.png';
 
@@ -16,16 +20,12 @@ export default function Navbar() {
                 style={styles.logoImage}
             />
             <View style={styles.detailContainer}>
-                {/* <FontAwesome
-                    name="user-circle"
-                    size={22}
-                    color={colors.dark}
-                /> */}
+                <UserProfile />
                 <Text style={styles.userName}>Rachel Caires</Text>
-                {/* <FontAwesome
-                    name="angle-down"
+                <AngleDown
                     size={15}
-                /> */}
+                    color={colors.black}
+                />
             </View>
         </View>
     )
