@@ -1,10 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View } from 'react-native';
 
-export default function HomeScreen(){
-    return(
+// components
+import MyStatusBar from '../../commonComponents/StatusBar';
+import Navbar from './components/Navbar';
+
+// constants
+import colors from '../../constants/colors';
+
+export default function HomeScreen() {
+    return (
         <View>
-            <Text>Home screeen</Text>
+            <MyStatusBar backgroundColor={colors.primary} />
+            <Navbar />
         </View>
     )
 }
