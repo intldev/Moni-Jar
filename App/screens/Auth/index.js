@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     },
     text: {
         marginTop: 30,
-        letterSpacing: 4
+        letterSpacing: 3,
+        fontFamily: 'Calibre-SemiBold'
     },
     signupButton: {
         backgroundColor: colors.dark,

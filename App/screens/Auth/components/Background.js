@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 // images
 import SlideBackImage from '../../../assets/images/slideBack.png';
@@ -13,10 +14,12 @@ export default function Background(props) {
         <View style={[styles.background, {
             backgroundColor
         }]}>
+            <LinearGradient colors={[colors.secondary.darkGradient, 'transparent']} style={styles.linearGradient} />
             <Image
                 source={SlideBackImage}
                 style={styles.sideImage1}
             />
+            <LinearGradient colors={['transparent', colors.secondary.darkGradient]} style={[styles.linearGradient, { bottom: 0 }]} />
         </View>
     )
 }
@@ -41,5 +44,10 @@ const styles = StyleSheet.create({
         right: 0,
         width: 140,
         top: 100
+    },
+    linearGradient: {
+        position: 'absolute',
+        height: '30%',
+        width: '100%'
     }
 })

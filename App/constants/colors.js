@@ -7,6 +7,7 @@ export default {
     blue: '#2EC4FF',
     secondary: {
         grey: 'rgb(56, 56, 56)',
-        lightGrey: '#E5E5E5'
+        lightGrey: '#E5E5E5',
+        darkGradient: 'rgba(30, 30, 30, 0.4)'
     }
 }

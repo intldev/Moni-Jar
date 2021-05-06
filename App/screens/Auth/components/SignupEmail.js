@@ -110,7 +110,8 @@ const styles = StyleSheet.create({
         color: colors.light,
         marginTop: 30,
         textAlign: 'center',
-        fontSize: 13
+        fontSize: 15,
+        fontFamily: 'Calibre'
     },
     linkButtonContainer: {
         marginTop: 25,

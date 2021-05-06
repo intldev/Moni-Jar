@@ -35,10 +35,13 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         paddingBottom: 8,
         paddingTop: 11,
-        color: colors.light
+        color: colors.light,
+        fontFamily: 'Calibre-SemiBold',
+        fontSize: 15
     },
     label: {
-        color: colors.light
+        color: colors.light,
+        fontFamily: 'Calibre'
     },
     container: {
         marginBottom: 30,

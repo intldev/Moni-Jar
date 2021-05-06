@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
         color: colors.light,
         lineHeight: 19,
         marginHorizontal: 15,
-        fontSize: 12
+        fontSize: 15,
+        fontFamily: 'Calibre',
     }
 })

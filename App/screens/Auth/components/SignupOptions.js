@@ -67,11 +67,11 @@ const styles = StyleSheet.create({
     },
     text: {
         marginTop: 30,
-        letterSpacing: 4,
+        letterSpacing: 3,
         textAlign: 'center',
-        paddingHorizontal: '20%',
+        paddingHorizontal: '25%',
         color: colors.light,
-        fontWeight: 'bold'
+        fontFamily: 'Calibre-SemiBold'
     },
     signupButton: {
         backgroundColor: colors.dark,
