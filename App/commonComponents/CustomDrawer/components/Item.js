@@ -17,7 +17,7 @@ export default function Item(props) {
 
 const styles = StyleSheet.create({
     text: {
-        fontSize: 12,
+        fontSize: 13,
         marginVertical: 15,
         color: colors.light,
         fontFamily: 'Calibre'

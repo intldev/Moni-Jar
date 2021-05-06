@@ -10,7 +10,10 @@ import AppCheckbox from '../../../commonComponents/Checkbox';
 import TextField from '../../../commonComponents/TextField';
 import Button from '../../../commonComponents/Button';
 
-export default function SignupEmail() {
+export default function SignupEmail(props) {
+
+    const {navigation} = props;
+    
     return (
         <SafeAreaView style={styles.container}>
             <KeyboardAwareScrollView contentContainerStyle={styles.contentContainer}>
@@ -64,6 +67,9 @@ export default function SignupEmail() {
                         title="SIGN UP"
                         containerStyles={styles.button}
                         textStyles={styles.buttonText}
+                        onPress={()=>{
+                            navigation.navigate('Drawer');
+                        }}
                     />
                     <Text style={styles.reviewText}>By submitting, you confirm that you are authorized to use the number entered andagree to receive SMS texts to verify you own the number. Carrier fees may apply.</Text>
                 </View>
