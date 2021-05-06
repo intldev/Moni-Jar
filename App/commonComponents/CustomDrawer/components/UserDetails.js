@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Calibre-SemiBold'
     },
     usernameText: {
-        fontSize: 12,
+        fontSize: 13,
         color: colors.light,
         fontFamily: 'Calibre'
     },
