@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 // svgs
 import UserProfile from '../../../commonComponents/svgs/UserProfile';
@@ -11,7 +11,10 @@ import Logo from '../../../assets/logo.png';
 // constnats
 import colors from '../../../constants/colors';
 
-export default function Navbar() {
+export default function Navbar(props) {
+
+    const { navigation } = props;
+
     return (
         <View style={styles.container}>
             <Image
@@ -19,16 +22,23 @@ export default function Navbar() {
                 resizeMode="contain"
                 style={styles.logoImage}
             />
-            <View style={styles.detailContainer}>
+            <TouchableOpacity
+                style={styles.detailContainer}
+                onPress={openDrawer}
+            >
                 <UserProfile />
                 <Text style={styles.userName}>Rachel Caires</Text>
                 <AngleDown
                     size={15}
                     color={colors.black}
                 />
-            </View>
+            </TouchableOpacity>
         </View>
     )
+
+    function openDrawer() {
+        navigation.openDrawer();
+    }
 }
 
 const styles = StyleSheet.create({
@@ -47,6 +57,7 @@ const styles = StyleSheet.create({
     detailContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        paddingVertical: 20
     },
     userName: {
         fontSize: 19,
