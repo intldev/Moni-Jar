@@ -14,7 +14,8 @@ export default function AppCheckbox(props) {
 
         checkBoxProps,
 
-        value = false
+        value = false,
+        onValueChange
     } = props;
     return (
         <View style={[styles.container, containerStyles]}>
@@ -24,7 +25,7 @@ export default function AppCheckbox(props) {
                 boxType="square"
                 onAnimationType="one-stroke"
                 offAnimationType="one-stroke"
-                // onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                onValueChange={onValueChange}
                 onCheckColor={colors.blue}
                 onFillColor={colors.secondary.grey}
                 onTintColor={colors.secondary.grey}
