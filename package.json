@@ -15,9 +15,8 @@
     }
   },
   "lint-staged": {
-    "./App/*.{js}": [
-      "npx prettier --write",
-      "eslint src/*.js --fix-dry-run"
+    "*.{js}": [
+      "eslint --fix"
     ]
   },
   "dependencies": {
@@ -26,7 +25,6 @@
     "@react-navigation/drawer": "^5.12.5",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
-    "node-sass": "^5.0.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-gesture-handler": "^1.10.3",
@@ -44,12 +42,15 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-native": "^3.10.0",
     "husky": "^6.0.0",
     "jest": "^25.1.0",
     "lint-staged": "^10.5.4",
     "metro-react-native-babel-preset": "^0.59.0",
-    "prettier": "^2.2.1",
+    "prettier": "2.2.1",
     "react-test-renderer": "16.13.1"
   },
   "jest": {
