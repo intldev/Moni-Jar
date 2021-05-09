@@ -23,15 +23,14 @@ const styles = StyleSheet.create({
         paddingVertical: 15
     },
     image: {
-        height: 15,
-        width: 15
+        height: 16,
+        width: 16
     },
     text: {
         color: colors.light,
         textTransform: 'capitalize',
-        fontSize: 12,
+        fontSize: 13,
         marginLeft: 15,
-        marginBottom: 1,
         fontFamily: 'Calibre'
     }
 })
