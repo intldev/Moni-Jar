@@ -1,0 +1,33 @@
+{
+  "env": {
+    "react-native/react-native": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+    "rules": {
+        "react/jsx-filename-extension": "off",
+        "react-native/no-unused-styles": 2,
+        "react/prop-types": "off"
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 11,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "react-native",
+      "react-hooks",
+      "prettier"
+  ],
+  "settings": {
+    "react": {
+        "version": "detect"
+    }
+  }
+}
