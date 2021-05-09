@@ -8,6 +8,7 @@ export default {
     secondary: {
         grey: 'rgb(56, 56, 56)',
         lightGrey: '#E5E5E5',
-        darkGradient: 'rgba(30, 30, 30, 0.4)'
+        darkGradient: 'rgba(30, 30, 30, 0.4)',
+        danger: '#e37448'
     }
 }

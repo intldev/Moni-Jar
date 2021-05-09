@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
@@ -10,10 +10,49 @@ import AppCheckbox from '../../../commonComponents/Checkbox';
 import TextField from '../../../commonComponents/TextField';
 import Button from '../../../commonComponents/Button';
 
+const initailErrors = {
+    firstName: false,
+    lastName: false,
+    email: false,
+    phone: false,
+    password: false,
+    checkbox1: false,
+    checkbox2: false
+}
+
+const initialValues = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    password: '',
+    checkbox1: false,
+    checkbox2: false
+}
+
 export default function SignupEmail(props) {
 
-    const {navigation} = props;
-    
+    const [details, setDetails] = useState({
+        ...initialValues
+    });
+    const [errors, setErrors] = useState({
+        ...initailErrors
+    })
+    const [submitOnce, setSubmitOnce] = useState(false);
+
+    const { navigation } = props;
+
+    const {
+        firstName,
+        lastName,
+        email,
+        phone,
+        password,
+        checkbox1,
+        checkbox2,
+    } = details;
+
+
     return (
         <SafeAreaView style={styles.container}>
             <KeyboardAwareScrollView contentContainerStyle={styles.contentContainer}>
@@ -21,10 +60,24 @@ export default function SignupEmail(props) {
                     <TextField
                         label="First Name"
                         textInputStyles={styles.rowTextInput}
+                        textInputProps={{
+                            onChangeText: (text) => {
+                                handleFormValues(text, 'firstName')
+                            },
+                            value: firstName
+                        }}
+                        error={errors.firstName}
                     />
                     <TextField
                         label="Last Name"
                         textInputStyles={styles.rowTextInput}
+                        textInputProps={{
+                            onChangeText: (text) => {
+                                handleFormValues(text, 'lastName')
+                            },
+                            value: lastName
+                        }}
+                        error={errors.lastName}
                     />
                 </View>
                 <TextField
@@ -32,50 +85,123 @@ export default function SignupEmail(props) {
                     textInputProps={{
                         placeholder: "Xxxxxx@xxx.com",
                         keyboardType: 'email-address',
-                        autoCapitalize: 'none'
+                        autoCapitalize: 'none',
+                        onChangeText: (text) => {
+                            handleFormValues(text, 'email')
+                        },
+                        value: email,
                     }}
+                    error={errors.email}
                 />
                 <TextField
                     label="Phone"
                     textInputProps={{
                         placeholder: "(XXX) XXX-XXXX",
-                        keyboardType: 'phone-pad'
+                        keyboardType: 'phone-pad',
+                        onChangeText: (text) => {
+                            handleFormValues(text, 'phone')
+                        },
+                        value: phone
                     }}
+                    error={errors.phone}
                 />
                 <TextField
                     label="Password"
                     textInputProps={{
                         placeholder: "Xxxxxx",
-                        secureTextEntry: true
+                        secureTextEntry: true,
+                        onChangeText: (text) => {
+                            handleFormValues(text, 'password')
+                        },
+                        value: password
                     }}
+                    error={errors.password}
                 />
                 <View>
                     <AppCheckbox
+                        value={checkbox1}
                         text="I agree to the Consent to Receive Electronic Disclosure and understand that we'll send account notices to the email address you provided."
+                        onValueChange={(value) => { handleFormValues(value, 'checkbox1') }}
                     />
                     <AppCheckbox
+                        value={checkbox2}
                         text="I have read and agree to Venmo's User Agreement and Privacy Policy."
                         containerStyles={{
                             marginTop: 15
                         }}
+                        onValueChange={(value) => { handleFormValues(value, 'checkbox2') }}
                     />
                     <TouchableOpacity style={styles.linkButtonContainer}>
                         <Text style={styles.helpfulInformation}>Helpful Information</Text>
                     </TouchableOpacity>
-
+                    {
+                        isError() ? (
+                            <Text style={styles.finishText}>
+                                Finish fill required fields<Text style={styles.asterisk}>*</Text>
+                            </Text>
+                        ) : null
+                    }
                     <Button
                         title="SIGN UP"
                         containerStyles={styles.button}
                         textStyles={styles.buttonText}
-                        onPress={()=>{
-                            navigation.navigate('Drawer');
-                        }}
+                        onPress={submit}
                     />
                     <Text style={styles.reviewText}>By submitting, you confirm that you are authorized to use the number entered andagree to receive SMS texts to verify you own the number. Carrier fees may apply.</Text>
                 </View>
             </KeyboardAwareScrollView>
         </SafeAreaView>
     )
+
+    function handleFormValues(text, field) {
+        if (submitOnce) {
+            validate({
+                ...details,
+                [field]: text
+            });
+        }
+        setDetails({
+            ...details,
+            [field]: text
+        })
+    }
+    function isError() {
+        let error = false;
+        Object.keys(errors).forEach((field) => {
+            if (errors[field]) {
+                error = true;
+                return;
+            }
+        })
+        return error;
+    }
+    function submit() {
+        setSubmitOnce(true);
+        let { validated } = validate();
+        if (validated) {
+            navigation.navigate('Drawer');
+        }
+    }
+    function validate(updatedDetails) {
+        let localErrors = {
+            ...initailErrors
+        }
+        let validated = true;
+        const detailsToCheck = updatedDetails ? updatedDetails : details;
+        Object.keys(detailsToCheck).forEach((field) => {
+            if (!detailsToCheck[field]) {
+                localErrors[field] = true;
+                validated = false;
+            }
+        })
+        setErrors({
+            ...localErrors,
+        })
+        return {
+            validated,
+            localErrors
+        };
+    }
 }
 
 const styles = StyleSheet.create({
@@ -121,5 +247,14 @@ const styles = StyleSheet.create({
     },
     linkButtonContainer: {
         marginTop: 25,
+    },
+    finishText: {
+        color: colors.secondary.danger,
+        fontSize: 16,
+        fontFamily: 'Calibre-SemiBold',
+        textAlign: 'center'
+    },
+    asterisk: {
+        fontSize: 16
     }
 })
