@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { Easing, View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import colors from '../constants/colors';
 import Svg, { Path } from "react-native-svg"
 
@@ -28,6 +28,7 @@ export default function AppCheckbox(props) {
         Animated.timing(fadeAnim, {
             toValue: 1,
             duration: 350,
+            easing: Easing.out(Easing.exp),
             useNativeDriver: true
         }).start();
     };
@@ -36,6 +37,7 @@ export default function AppCheckbox(props) {
         Animated.timing(fadeAnim, {
             toValue: 0,
             duration: 350,
+            easing: Easing.out(Easing.exp),
             useNativeDriver: true
         }).start();
     };
