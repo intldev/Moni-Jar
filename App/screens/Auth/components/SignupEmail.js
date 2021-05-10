@@ -4,6 +4,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 // constants
 import colors from '../../../constants/colors';
+import { errorMessages } from '../../../constants/variable';
 
 // components
 import AppCheckbox from '../../../commonComponents/Checkbox';
@@ -41,6 +42,8 @@ export default function SignupEmail(props) {
         ...initailErrors
     })
     const [submitOnce, setSubmitOnce] = useState(false);
+
+    const [errorMessage, setErrorMessage] = useState(errorMessages.validationField);
 
     const { navigation } = props;
 
@@ -157,7 +160,7 @@ export default function SignupEmail(props) {
                     {
                         isError() ? (
                             <Text style={styles.finishText}>
-                                Finish fill required fields<Text style={styles.asterisk}>*</Text>
+                                {errorMessage}<Text style={styles.asterisk}>*</Text>
                             </Text>
                         ) : null
                     }
@@ -187,6 +190,9 @@ export default function SignupEmail(props) {
                 return;
             }
         })
+        if (password !== confirmPassword) {
+            error = true;
+        }
         return error;
     }
     function submit() {
@@ -207,6 +213,13 @@ export default function SignupEmail(props) {
                 validated = false;
             }
         })
+        if (!validated) {
+            setErrorMessage(errorMessages.validationField);
+        }
+        else if (validated && password !== confirmPassword) {
+            validated = false;
+            setErrorMessage(errorMessages.passwordMatch);
+        }
         setErrors({
             ...localErrors,
         })
