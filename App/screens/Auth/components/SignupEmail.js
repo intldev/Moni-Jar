@@ -16,6 +16,7 @@ const initailErrors = {
     email: false,
     phone: false,
     password: false,
+    confirmPassword: false,
     checkbox1: false,
     checkbox2: false
 }
@@ -26,6 +27,7 @@ const initialValues = {
     email: '',
     phone: '',
     password: '',
+    confirmPassword: '',
     checkbox1: false,
     checkbox2: false
 }
@@ -48,10 +50,16 @@ export default function SignupEmail(props) {
         email,
         phone,
         password,
+        confirmPassword,
         checkbox1,
         checkbox2,
     } = details;
 
+    useEffect(() => {
+        if (submitOnce) {
+            validate();
+        }
+    }, [details, submitOnce]);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -117,6 +125,18 @@ export default function SignupEmail(props) {
                     }}
                     error={errors.password}
                 />
+                <TextField
+                    label="Confirm Password"
+                    textInputProps={{
+                        placeholder: "Xxxxxx",
+                        secureTextEntry: true,
+                        onChangeText: (text) => {
+                            handleFormValues(text, 'confirmPassword')
+                        },
+                        value: confirmPassword
+                    }}
+                    error={errors.password}
+                />
                 <View>
                     <AppCheckbox
                         value={checkbox1}
@@ -154,12 +174,6 @@ export default function SignupEmail(props) {
     )
 
     function handleFormValues(text, field) {
-        if (submitOnce) {
-            validate({
-                ...details,
-                [field]: text
-            });
-        }
         setDetails({
             ...details,
             [field]: text
@@ -182,14 +196,13 @@ export default function SignupEmail(props) {
             navigation.navigate('Drawer');
         }
     }
-    function validate(updatedDetails) {
+    function validate() {
         let localErrors = {
             ...initailErrors
         }
         let validated = true;
-        const detailsToCheck = updatedDetails ? updatedDetails : details;
-        Object.keys(detailsToCheck).forEach((field) => {
-            if (!detailsToCheck[field]) {
+        Object.keys(details).forEach((field) => {
+            if (!details[field]) {
                 localErrors[field] = true;
                 validated = false;
             }
