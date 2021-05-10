@@ -12,12 +12,13 @@ export default function TextField(props) {
         textInputStyles,
 
         label = "Label",
-        labelStyles
+        labelStyles,
+        error
     } = props;
 
     return (
         <View style={[styles.container, containerStyles]}>
-            <Text style={[styles.label, labelStyles]}>{label}</Text>
+            <Text style={[styles.label, labelStyles, error ? styles.error : null]}>{label}{error?'*':''}</Text>
             <TextInput
                 style={[styles.textField, textInputStyles]}
                 placeholder="Xxxxxxx"
@@ -45,5 +46,8 @@ const styles = StyleSheet.create({
     },
     container: {
         marginBottom: 30,
+    },
+    error: {
+        color: colors.secondary.danger
     }
 })
