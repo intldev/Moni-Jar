@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./App",
+    "baseUrl": "./src",
     "jsx": "react",
   },
   "exclude": ["node_modules"]
