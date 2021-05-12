@@ -1,6 +1,6 @@
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
-import colors from "constants/colors";
+import colors from "../../constants/colors";
 
 function UserProfile(props) {
   const { size = 25, color = colors.dark } = props;

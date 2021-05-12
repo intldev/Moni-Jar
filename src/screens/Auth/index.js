@@ -2,14 +2,14 @@ import React from "react";
 import { Text, StyleSheet, Image, StatusBar, ScrollView } from "react-native";
 
 // constants
-import colors from "constants/colors";
+import colors from "../../constants/colors";
 
 // components
 import Background from "./components/Background";
-import Button from "cpts/base/Button";
+import Button from "../../cpts/base/Button";
 
 // logo
-import Logo from "assets/images/logoLightO.png";
+import Logo from "../../assets/images/logoLightO.png";
 
 export default function Auth(props) {
   const { navigation } = props;

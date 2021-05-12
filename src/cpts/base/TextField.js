@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
-import colors from "constants/colors";
+import colors from "../../constants/colors";
 
 export default function TextField(props) {
   const {

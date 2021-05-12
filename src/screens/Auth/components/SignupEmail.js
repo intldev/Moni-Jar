@@ -9,13 +9,13 @@ import {
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 // constants
-import colors from "constants/colors";
-import { errorMessages } from "constants/variable";
+import colors from "../../../constants/colors";
+import { errorMessages } from "../../../constants/variable";
 
 // components
-import AppCheckbox from "cpts/base/Checkbox";
-import TextField from "cpts/base/TextField";
-import Button from "cpts/base/Button";
+import AppCheckbox from "../../../cpts/base/Checkbox";
+import TextField from "../../../cpts/base/TextField";
+import Button from "../../../cpts/base/Button";
 
 const initailErrors = {
   firstName: false,

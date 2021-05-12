@@ -2,14 +2,14 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 // svgs
-import UserProfile from "assets/svgs/UserProfile";
-import AngleDown from "assets/svgs/AngleDown";
+import UserProfile from "../../../assets/svgs/UserProfile";
+import AngleDown from "../../../assets/svgs/AngleDown";
 
 // images
-import Logo from "assets/logo.png";
+import Logo from "../../../assets/images/logo.png";
 
 // constnats
-import colors from "constants/colors";
+import colors from "../../../constants/colors";
 
 export default function Navbar(props) {
   const { navigation } = props;
