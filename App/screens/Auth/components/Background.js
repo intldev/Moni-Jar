@@ -37,14 +37,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%'
     },
-    sideImage2: {
-        height: 200,
-        resizeMode: 'contain',
-        position: 'absolute',
-        right: 0,
-        width: 140,
-        top: 100
-    },
     linearGradient: {
         position: 'absolute',
         height: '30%',
