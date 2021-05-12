@@ -13,9 +13,9 @@ import colors from "../../../constants/colors";
 import { errorMessages } from "../../../constants/variable";
 
 // components
-import AppCheckbox from "../../../commonComponents/Checkbox";
-import TextField from "../../../commonComponents/TextField";
-import Button from "../../../commonComponents/Button";
+import AppCheckbox from "../../../cpts/base/Checkbox";
+import TextField from "../../../cpts/base/TextField";
+import Button from "../../../cpts/base/Button";
 
 const initailErrors = {
   firstName: false,
