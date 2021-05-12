@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,11 +10,12 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 
 // constants
 import colors from "../../../constants/colors";
+import { errorMessages } from "../../../constants/variable";
 
 // components
-import AppCheckbox from "../../../cpts/base/Checkbox";
-import TextField from "../../../cpts/base/TextField";
-import Button from "../../../cpts/base/Button";
+import AppCheckbox from "../../../commonComponents/Checkbox";
+import TextField from "../../../commonComponents/TextField";
+import Button from "../../../commonComponents/Button";
 
 const initailErrors = {
   firstName: false,
@@ -22,6 +23,7 @@ const initailErrors = {
   email: false,
   phone: false,
   password: false,
+  confirmPassword: false,
   checkbox1: false,
   checkbox2: false,
 };
@@ -32,6 +34,7 @@ const initialValues = {
   email: "",
   phone: "",
   password: "",
+  confirmPassword: "",
   checkbox1: false,
   checkbox2: false,
 };
@@ -45,6 +48,10 @@ export default function SignupEmail(props) {
   });
   const [submitOnce, setSubmitOnce] = useState(false);
 
+  const [errorMessage, setErrorMessage] = useState(
+    errorMessages.validationField,
+  );
+
   const { navigation } = props;
 
   const {
@@ -53,9 +60,16 @@ export default function SignupEmail(props) {
     email,
     phone,
     password,
+    confirmPassword,
     checkbox1,
     checkbox2,
   } = details;
+
+  useEffect(() => {
+    if (submitOnce) {
+      validate();
+    }
+  }, [details, submitOnce]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -121,6 +135,18 @@ export default function SignupEmail(props) {
           }}
           error={errors.password}
         />
+        <TextField
+          label="Confirm Password"
+          textInputProps={{
+            placeholder: "Xxxxxx",
+            secureTextEntry: true,
+            onChangeText: text => {
+              handleFormValues(text, "confirmPassword");
+            },
+            value: confirmPassword,
+          }}
+          error={errors.password}
+        />
         <View>
           <AppCheckbox
             value={checkbox1}
@@ -144,7 +170,8 @@ export default function SignupEmail(props) {
           </TouchableOpacity>
           {isError() ? (
             <Text style={styles.finishText}>
-              Finish fill required fields<Text style={styles.asterisk}>*</Text>
+              {errorMessage}
+              <Text style={styles.asterisk}>*</Text>
             </Text>
           ) : null}
           <Button
@@ -164,12 +191,6 @@ export default function SignupEmail(props) {
   );
 
   function handleFormValues(text, field) {
-    if (submitOnce) {
-      validate({
-        ...details,
-        [field]: text,
-      });
-    }
     setDetails({
       ...details,
       [field]: text,
@@ -183,6 +204,9 @@ export default function SignupEmail(props) {
         return;
       }
     });
+    if (password !== confirmPassword) {
+      error = true;
+    }
     return error;
   }
   function submit() {
@@ -192,18 +216,23 @@ export default function SignupEmail(props) {
       navigation.navigate("Drawer");
     }
   }
-  function validate(updatedDetails) {
+  function validate() {
     const localErrors = {
       ...initailErrors,
     };
     let validated = true;
-    const detailsToCheck = updatedDetails ? updatedDetails : details;
-    Object.keys(detailsToCheck).forEach(field => {
-      if (!detailsToCheck[field]) {
+    Object.keys(details).forEach(field => {
+      if (!details[field]) {
         localErrors[field] = true;
         validated = false;
       }
     });
+    if (!validated) {
+      setErrorMessage(errorMessages.validationField);
+    } else if (validated && password !== confirmPassword) {
+      validated = false;
+      setErrorMessage(errorMessages.passwordMatch);
+    }
     setErrors({
       ...localErrors,
     });

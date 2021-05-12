@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 
 // components
-import MyStatusBar from "../../cpts/StatusBar";
+import MyStatusBar from "../../commonComponents/StatusBar";
 import Navbar from "./components/Navbar";
 
 // constants
