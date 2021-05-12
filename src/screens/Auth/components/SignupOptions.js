@@ -2,14 +2,14 @@ import React from "react";
 import { StatusBar, Text, StyleSheet, Image, ScrollView } from "react-native";
 
 // constants
-import colors from "../../../constants/colors";
+import colors from "constants/colors";
 
 // logo
-import Logo from "../../../assets/images/logoLight.png";
+import Logo from "assets/images/logoLight.png";
 
 // components
 import Background from "./Background";
-import Button from "../../../cpts/base/Button";
+import Button from "cpts/base/Button";
 
 export default function SignupOptions(props) {
   const { navigation, route } = props;

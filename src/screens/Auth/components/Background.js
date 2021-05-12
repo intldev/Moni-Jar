@@ -3,10 +3,10 @@ import { View, Image, StyleSheet } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 // images
-import SlideBackImage from "../../../assets/images/slideBack.png";
+import SlideBackImage from "assets/images/slideBack.png";
 
 // constantss
-import colors from "../../../constants/colors";
+import colors from "constants/colors";
 
 export default function Background(props) {
   const { backgroundColor = colors.primary } = props;

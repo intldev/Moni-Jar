@@ -2,10 +2,10 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 // custom drawer component
-import CustomDrawer from "../cpts/CustomDrawer";
+import CustomDrawer from "cpts/CustomDrawer";
 
 // screens
-import HomeScreen from "../screens/HomeScreen";
+import HomeScreen from "screens/HomeScreen";
 
 const Drawer = createDrawerNavigator();
 
