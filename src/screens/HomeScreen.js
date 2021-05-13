@@ -1,9 +1,5 @@
 import React from "react";
-import { View } from "react-native";
-
-// components
-import MyStatusBar from "../cpts/StatusBar";
-import Navbar from "../cpts/Navbar";
+import { View, Text } from "react-native";
 
 // constants
 import colors from "../constants/colors";
@@ -12,8 +8,7 @@ export default function HomeScreen(props) {
   const { navigation } = props;
   return (
     <View>
-      <MyStatusBar backgroundColor={colors.primary} />
-      <Navbar navigation={navigation} />
+      <Text>HomeScreen</Text>
     </View>
   );
 }
