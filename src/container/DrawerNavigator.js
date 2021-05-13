@@ -5,7 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomDrawer from "../cpts/CustomDrawer";
 
 // screens
-import HomeScreen from "../screens/HomeScreen";
+import TabNavigator from "./TabNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -23,7 +23,10 @@ export default function DrawerNavigator() {
       drawerType="front"
       drawerPosition="right"
     >
-      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen
+        name="Home"
+        component={TabNavigator}
+      />
     </Drawer.Navigator>
   );
 }
