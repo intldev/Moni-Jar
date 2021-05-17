@@ -7,7 +7,7 @@ import colors from '../constants/colors';
 
 // components
 import MyStatusBar from '../cpts/StatusBar';
-import Navbar from '../screens/HomeScreen/components/Navbar';
+import Navbar from '../cpts/Navbar';
 
 // screens
 import HomeScreen from '../screens/HomeScreen';
@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
     tab: {
         height: '100%',
         flex: 1,
-        justifyContent: 'flex-end',
         alignItems: 'center',
+        justifyContent: 'center',
         marginTop: 10,
         backgroundColor: colors.secondary.navigator,
-        paddingBottom: 15
+        paddingBottom: 10
     },
     tabLabel: {
         fontFamily: 'Calibre-SemiBold',
