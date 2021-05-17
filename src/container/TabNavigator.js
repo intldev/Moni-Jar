@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
     tab: {
         height: '100%',
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,
         backgroundColor: colors.secondary.navigator,
         paddingBottom: 10,
+        justifyContent: 'center',
     },
     tabLabel: {
         fontFamily: 'Calibre-SemiBold',
