@@ -3,7 +3,7 @@ import colors from '../../../constants/colors';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import ProgressBar from './ProgressBar';
 
-const baseHeight = 90;
+const baseHeight = 95;
 
 export default function ListItem(props) {
     const { item } = props;
@@ -48,8 +48,10 @@ export default function ListItem(props) {
                             <Text style={[styles.title, {
                                 color: colors.blue,
                                 marginTop: 5
-                            }]}>
-                                <Text style={styles.bold} numberOfLines={1}>"ALMOST THERE.</Text> I can't wait to get to Cancun"
+                            }]}
+                                numberOfLines={1}
+                            >
+                                <Text style={styles.bold}>"ALMOST THERE.</Text> I can't wait to get to Cancun"
                             </Text>
                         )
                     }
@@ -86,7 +88,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.dark,
         alignSelf: 'center',
         borderRadius: 50,
-        marginBottom: 25
+        marginBottom: 25,
     },
     hexaInner: {
         height: baseHeight,
@@ -116,7 +118,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         paddingVertical: 5,
-        paddingRight: 20
+        paddingRight: 20,
+        justifyContent: 'center'
     },
     title: {
         color: colors.light,
