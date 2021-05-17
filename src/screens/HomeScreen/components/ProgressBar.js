@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
         height: '100%',
         width: 25,
         backgroundColor: colors.progressBar.completed,
+        top: -2,
         position: 'absolute',
         right: -10,
         transform: [{
