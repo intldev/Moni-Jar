@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import colors from "../../../constants/colors";
+import { calibre13 } from "../../../constants/typography";
 
 export default function UserDetails() {
   return (
@@ -22,9 +23,8 @@ const styles = StyleSheet.create({
     fontFamily: "Calibre-SemiBold",
   },
   usernameText: {
-    fontSize: 13,
+    ...calibre13,
     color: colors.light,
-    fontFamily: "Calibre",
   },
   usernameContainer: {
     marginTop: 10,

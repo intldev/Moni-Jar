@@ -3,7 +3,7 @@ import { View, SafeAreaView, StatusBar, StyleSheet } from "react-native";
 
 const STATUSBAR_HEIGHT = StatusBar.currentHeight;
 
-export default function MyStatusBar({ backgroundColor, ...props }) {
+const MyStatusBar = ({ backgroundColor, ...props }) => {
   return (
     <View style={[styles.statusBar, { backgroundColor }]}>
       <SafeAreaView>
@@ -11,7 +11,9 @@ export default function MyStatusBar({ backgroundColor, ...props }) {
       </SafeAreaView>
     </View>
   );
-}
+};
+
+export default MyStatusBar;
 
 const styles = StyleSheet.create({
   statusBar: {

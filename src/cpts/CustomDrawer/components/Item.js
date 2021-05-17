@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import colors from "../../../constants/colors";
+import { calibre13 } from "../../../constants/typography";
 
 export default function Item(props) {
   const { title = "" } = props;
@@ -16,10 +17,9 @@ export default function Item(props) {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 13,
+    ...calibre13,
     marginVertical: 15,
     color: colors.light,
-    fontFamily: "Calibre",
   },
   container: {
     marginVertical: 30,

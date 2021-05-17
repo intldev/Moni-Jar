@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import colors from "../../../constants/colors";
+import { calibre13 } from "../../../constants/typography";
 
 export default function ListItem(props) {
   const { title, image } = props;
@@ -23,10 +24,9 @@ const styles = StyleSheet.create({
     width: 16,
   },
   text: {
+    ...calibre13,
     color: colors.light,
     textTransform: "capitalize",
-    fontSize: 13,
     marginLeft: 15,
-    fontFamily: "Calibre",
   },
 });
