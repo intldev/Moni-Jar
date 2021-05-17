@@ -396,6 +396,9 @@
 				8BE4FC692642D23B00CC334C /* Calibre.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				265F45D4ED9143DD96503E8B /* Calibre-Light.ttf in Resources */,
+				D9734533F2594DD8B539B6C2 /* Calibre-SemiBold.ttf in Resources */,
+				9459CCE0D0234C02BF1B680C /* Calibre.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
