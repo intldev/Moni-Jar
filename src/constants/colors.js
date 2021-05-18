@@ -11,11 +11,11 @@ export default {
     darkGradient: "rgba(30, 30, 30, 0.4)",
     danger: "#e37448",
     checkboxBlue: "rgba(46,196,255,1)",
-    navigator: '#5ec3f9',
-    navigatorDark: '#5ab8ee'
+    navigator: "#5ec3f9",
+    navigatorDark: "#5ab8ee",
   },
-  progressBar:{
-    completed: '#76E5A3',
-    incomplete: '#FF5252'
-  }
+  progressBar: {
+    completed: "#76E5A3",
+    incomplete: "#FF5252",
+  },
 };
