@@ -23,10 +23,7 @@ export default function DrawerNavigator() {
       drawerType="front"
       drawerPosition="right"
     >
-      <Drawer.Screen
-        name="Home"
-        component={TabNavigator}
-      />
+      <Drawer.Screen name="Home" component={TabNavigator} />
     </Drawer.Navigator>
   );
 }
