@@ -14,4 +14,8 @@ export default {
     navigator: '#5ec3f9',
     navigatorDark: '#5ab8ee'
   },
+  progressBar:{
+    completed: '#76E5A3',
+    incomplete: '#FF5252'
+  }
 };
