@@ -151,9 +151,8 @@ export default function SignupEmail(props) {
           <AppCheckbox
             value={checkbox1}
             text="I agree to the Consent to Receive Electronic Disclosure and understand that we'll send account notices to the email address you provided."
-            onValueChange={value => {
-              handleFormValues(value, "checkbox1");
-            }}
+            value={checkbox1}
+            onValueChange={value => handleFormValues(value, "checkbox1")}
           />
           <AppCheckbox
             value={checkbox2}
@@ -161,9 +160,8 @@ export default function SignupEmail(props) {
             containerStyles={{
               marginTop: 15,
             }}
-            onValueChange={value => {
-              handleFormValues(value, "checkbox2");
-            }}
+            value={checkbox2}
+            onValueChange={value => handleFormValues(value, "checkbox2")}
           />
           <TouchableOpacity style={styles.linkButtonContainer}>
             <Text style={styles.helpfulInformation}>Helpful Information</Text>
@@ -213,7 +211,18 @@ export default function SignupEmail(props) {
     setSubmitOnce(true);
     const { validated } = validate();
     if (validated) {
-      navigation.navigate("Drawer");
+      const fullName = details.firstName + " " + details.lastName;
+      firebase.auth().createUserWithEmailAndPassword(details.email, details.password).then((response) => {
+        const uid = response.user.uid
+        const data = {
+          id: uid,
+          email: details.email,
+          fullName
+        }
+        const usersRef = firebase.firestore().collection('users');
+        usersRef.doc(uid).set(data);
+        navigation.navigate("Drawer", { user: data });
+      }).catch((error) => alert(error))
     }
   }
   function validate() {
