@@ -10,6 +10,15 @@ import SignupOptions from "../screens/Auth/components/SignupOptions";
 import SignupEmail from "../screens/Auth/components/SignupEmail";
 import useAuth from "../utils/hooks/useAuth";
 
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { GRAPHQL_ENDPOINT } from "../constants/config";
+
+// Initialize Apollo Client
+const client = new ApolloClient({
+  uri: GRAPHQL_ENDPOINT,
+  cache: new InMemoryCache()
+});
+
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
