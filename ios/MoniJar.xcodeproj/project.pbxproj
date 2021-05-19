@@ -17,6 +17,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MoniJarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoniJarTests.m */; };
 		75FDC17CA5256C7915BCCAED /* libPods-MoniJar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A15C135BAA88CA0DC8FE92D /* libPods-MoniJar.a */; };
+		7FCE9AA226556C820092EB2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE9AA126556C820092EB2B /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9459CCE0D0234C02BF1B680C /* Calibre.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493F19785F1A4A87AF6FC5D8 /* Calibre.ttf */; };
 		D1CCA2C5200B09CAF4808E02 /* libPods-MoniJar-MoniJarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1432D28586CA7F0F8CC08362 /* libPods-MoniJar-MoniJarTests.a */; };
@@ -61,6 +62,7 @@
 		493F19785F1A4A87AF6FC5D8 /* Calibre.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Calibre.ttf; path = ../src/assets/fonts/Calibre.ttf; sourceTree = "<group>"; };
 		4BC2B5BAB9DED919B2A84A6D /* Pods-MoniJar-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MoniJar-tvOS/Pods-MoniJar-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7243DE3289114EAAFCCC5DA2 /* libPods-MoniJar-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoniJar-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FCE9AA126556C820092EB2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "MoniJar/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MoniJar/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A15C135BAA88CA0DC8FE92D /* libPods-MoniJar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoniJar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93556A2A08BF417C83558B26 /* Calibre-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Calibre-SemiBold.ttf"; path = "../src/assets/fonts/Calibre-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		13B07FAE1A68108700A75B9A /* MoniJar */ = {
 			isa = PBXGroup;
 			children = (
+				7FCE9AA126556C820092EB2B /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -361,6 +364,7 @@
 				265F45D4ED9143DD96503E8B /* Calibre-Light.ttf in Resources */,
 				D9734533F2594DD8B539B6C2 /* Calibre-SemiBold.ttf in Resources */,
 				9459CCE0D0234C02BF1B680C /* Calibre.ttf in Resources */,
+				7FCE9AA226556C820092EB2B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
