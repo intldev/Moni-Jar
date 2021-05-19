@@ -13,7 +13,7 @@ import colors from "../../../constants/colors";
 import { errorMessages } from "../../../constants/variable";
 
 // firebase
-import { firebase } from "../../../firebase/config";
+// import { firebase } from "../../../firebase/config";
 
 // components
 import AppCheckbox from "../../../cpts/base/Checkbox";
@@ -212,18 +212,18 @@ export default function SignupEmail(props) {
     setSubmitOnce(true);
     const { validated } = validate();
     if (validated) {
-      const fullName = details.firstName + " " + details.lastName;
-      firebase.auth().createUserWithEmailAndPassword(details.email, details.password).then((response) => {
-        const uid = response.user.uid
-        const data = {
-          id: uid,
-          email: details.email,
-          fullName
-        }
-        const usersRef = firebase.firestore().collection('users');
-        usersRef.doc(uid).set(data);
-        navigation.navigate("Drawer", { user: data });
-      }).catch((error) => alert(error))
+      // const fullName = details.firstName + " " + details.lastName;
+      // firebase.auth().createUserWithEmailAndPassword(details.email, details.password).then((response) => {
+      //   const uid = response.user.uid
+      //   const data = {
+      //     id: uid,
+      //     email: details.email,
+      //     fullName
+      //   }
+      //   const usersRef = firebase.firestore().collection('users');
+      //   usersRef.doc(uid).set(data);
+      // navigation.navigate("Drawer", { user: data });
+      // }).catch((error) => alert(error))
     }
   }
   function validate() {
