@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface MoniTests : XCTestCase
+@interface MoniJarTests : XCTestCase
 
 @end
 
-@implementation MoniTests
+@implementation MoniJarTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

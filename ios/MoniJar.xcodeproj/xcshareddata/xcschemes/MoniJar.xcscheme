@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Moni-tvOS.app"
-               BlueprintName = "Moni-tvOS"
-               ReferencedContainer = "container:Moni.xcodeproj">
+               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "MoniJar.app"
+               BlueprintName = "MoniJar"
+               ReferencedContainer = "container:MoniJar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Moni-tvOSTests.xctest"
-               BlueprintName = "Moni-tvOSTests"
-               ReferencedContainer = "container:Moni.xcodeproj">
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "MoniJarTests.xctest"
+               BlueprintName = "MoniJarTests"
+               ReferencedContainer = "container:MoniJar.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,10 +54,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Moni-tvOS.app"
-            BlueprintName = "Moni-tvOS"
-            ReferencedContainer = "container:Moni.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "MoniJar.app"
+            BlueprintName = "MoniJar"
+            ReferencedContainer = "container:MoniJar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,10 +71,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Moni-tvOS.app"
-            BlueprintName = "Moni-tvOS"
-            ReferencedContainer = "container:Moni.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "MoniJar.app"
+            BlueprintName = "MoniJar"
+            ReferencedContainer = "container:MoniJar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

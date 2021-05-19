@@ -12,6 +12,9 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import colors from "../../../constants/colors";
 import { errorMessages } from "../../../constants/variable";
 
+// firebase
+import { firebase } from "../../../firebase/config";
+
 // components
 import AppCheckbox from "../../../cpts/base/Checkbox";
 import TextField from "../../../cpts/base/TextField";
@@ -149,13 +152,11 @@ export default function SignupEmail(props) {
         />
         <View>
           <AppCheckbox
-            value={checkbox1}
             text="I agree to the Consent to Receive Electronic Disclosure and understand that we'll send account notices to the email address you provided."
             value={checkbox1}
             onValueChange={value => handleFormValues(value, "checkbox1")}
           />
           <AppCheckbox
-            value={checkbox2}
             text="I have read and agree to Venmo's User Agreement and Privacy Policy."
             containerStyles={{
               marginTop: 15,
@@ -180,7 +181,7 @@ export default function SignupEmail(props) {
           />
           <Text style={styles.reviewText}>
             By submitting, you confirm that you are authorized to use the number
-            entered andagree to receive SMS texts to verify you own the number.
+            entered and agree to receive SMS texts to verify you own the number.
             Carrier fees may apply.
           </Text>
         </View>
