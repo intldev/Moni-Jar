@@ -11,7 +11,7 @@ import SignupEmail from "../screens/Auth/components/SignupEmail";
 import useAuth from "../utils/hooks/useAuth";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { GRAPHQL_ENDPOINT } from "../constants/config";
+import { GRAPHQL_ENDPOINT } from '@env'
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -22,10 +22,14 @@ const client = new ApolloClient({
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
+  const [isInitializing, user] = useAuth();
   const navigation = (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Drawer" headerMode="none">
+        <Stack.Navigator
+          initialRouteName={user ? "Drawer" : "Auth"}
+          headerMode="none"
+        >
           <Stack.Screen name="Drawer" component={DrawerNavigator} />
           <Stack.Screen name="Auth" component={Auth} />
           <Stack.Screen name="SignupOptions" component={SignupOptions} />
@@ -42,8 +46,10 @@ const AppNavigator = () => {
           />
         </Stack.Navigator>
       </NavigationContainer>
-     </ApolloProvider>
+    </ApolloProvider>
   );
+  if (isInitializing) return null;
+
   return navigation;
 };
 
