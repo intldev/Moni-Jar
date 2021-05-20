@@ -8,13 +8,21 @@ import Auth from "../screens/Auth";
 import SplashScreen from "../screens/SplashScreen";
 import SignupOptions from "../screens/Auth/components/SignupOptions";
 import SignupEmail from "../screens/Auth/components/SignupEmail";
+import useAuth from "../utils/hooks/useAuth";
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
-  const navigation = (
+  const [isInitializing, user] = useAuth();
+
+  if (isInitializing) return null;
+
+  return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Drawer" headerMode="none">
+      <Stack.Navigator
+        initialRouteName={user ? "Drawer" : "Auth"}
+        headerMode="none"
+      >
         <Stack.Screen name="Drawer" component={DrawerNavigator} />
         <Stack.Screen name="Auth" component={Auth} />
         <Stack.Screen name="SignupOptions" component={SignupOptions} />
@@ -32,8 +40,6 @@ const AppNavigator = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
-
-  return navigation;
 };
 
 export default AppNavigator;

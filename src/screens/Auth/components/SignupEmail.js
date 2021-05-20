@@ -7,13 +7,11 @@ import {
   SafeAreaView,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import auth from "@react-native-firebase/auth";
 
 // constants
 import colors from "../../../constants/colors";
 import { errorMessages } from "../../../constants/variable";
-
-// firebase
-// import { firebase } from "../../../firebase/config";
 
 // components
 import AppCheckbox from "../../../cpts/base/Checkbox";
@@ -212,18 +210,26 @@ export default function SignupEmail(props) {
     setSubmitOnce(true);
     const { validated } = validate();
     if (validated) {
-      // const fullName = details.firstName + " " + details.lastName;
-      // firebase.auth().createUserWithEmailAndPassword(details.email, details.password).then((response) => {
-      //   const uid = response.user.uid
-      //   const data = {
-      //     id: uid,
-      //     email: details.email,
-      //     fullName
-      //   }
-      //   const usersRef = firebase.firestore().collection('users');
-      //   usersRef.doc(uid).set(data);
-      // navigation.navigate("Drawer", { user: data });
-      // }).catch((error) => alert(error))
+      auth()
+        .createUserWithEmailAndPassword(details.email, details.password)
+        .then(res => {
+          const uid = res.user.uid;
+
+          alert(uid);
+
+          navigation.navigate("Drawer");
+        })
+        .catch(error => {
+          if (error.code === "auth/email-already-in-use") {
+            console.log("That email address is already in use!");
+          }
+
+          if (error.code === "auth/invalid-email") {
+            console.log("That email address is invalid!");
+          }
+
+          console.error(error);
+        });
     }
   }
   function validate() {
