@@ -12,6 +12,9 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import colors from "../../../constants/colors";
 import { errorMessages } from "../../../constants/variable";
 
+// firebase
+// import { firebase } from "../../../firebase/config";
+
 // components
 import AppCheckbox from "../../../cpts/base/Checkbox";
 import TextField from "../../../cpts/base/TextField";
@@ -149,21 +152,17 @@ export default function SignupEmail(props) {
         />
         <View>
           <AppCheckbox
-            value={checkbox1}
             text="I agree to the Consent to Receive Electronic Disclosure and understand that we'll send account notices to the email address you provided."
-            onValueChange={value => {
-              handleFormValues(value, "checkbox1");
-            }}
+            value={checkbox1}
+            onValueChange={value => handleFormValues(value, "checkbox1")}
           />
           <AppCheckbox
-            value={checkbox2}
             text="I have read and agree to Venmo's User Agreement and Privacy Policy."
             containerStyles={{
               marginTop: 15,
             }}
-            onValueChange={value => {
-              handleFormValues(value, "checkbox2");
-            }}
+            value={checkbox2}
+            onValueChange={value => handleFormValues(value, "checkbox2")}
           />
           <TouchableOpacity style={styles.linkButtonContainer}>
             <Text style={styles.helpfulInformation}>Helpful Information</Text>
@@ -182,7 +181,7 @@ export default function SignupEmail(props) {
           />
           <Text style={styles.reviewText}>
             By submitting, you confirm that you are authorized to use the number
-            entered andagree to receive SMS texts to verify you own the number.
+            entered and agree to receive SMS texts to verify you own the number.
             Carrier fees may apply.
           </Text>
         </View>
@@ -213,7 +212,18 @@ export default function SignupEmail(props) {
     setSubmitOnce(true);
     const { validated } = validate();
     if (validated) {
-      navigation.navigate("Drawer");
+      // const fullName = details.firstName + " " + details.lastName;
+      // firebase.auth().createUserWithEmailAndPassword(details.email, details.password).then((response) => {
+      //   const uid = response.user.uid
+      //   const data = {
+      //     id: uid,
+      //     email: details.email,
+      //     fullName
+      //   }
+      //   const usersRef = firebase.firestore().collection('users');
+      //   usersRef.doc(uid).set(data);
+      // navigation.navigate("Drawer", { user: data });
+      // }).catch((error) => alert(error))
     }
   }
   function validate() {

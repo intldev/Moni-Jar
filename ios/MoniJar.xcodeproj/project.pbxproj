@@ -7,22 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* MoniTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoniTests.m */; };
-		10451A7CC77E9E3A96B9325F /* libPods-Moni-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7D2FCD20C9786BB875CA88 /* libPods-Moni-tvOSTests.a */; };
+		00E356F31AD99517003FC87E /* MoniJarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoniJarTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1F73F90EEE6DCBAA978E079D /* libPods-Moni-MoniTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C6B0F8DF032F6FD7E2E92C /* libPods-Moni-MoniTests.a */; };
+		265F45D4ED9143DD96503E8B /* Calibre-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7CBFE03B7CE47DC99B004F8 /* Calibre-Light.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* MoniTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoniTests.m */; };
-		36A10B4A5810F0B37401797E /* libPods-Moni.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED03CE113FFC10ED089622B /* libPods-Moni.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* MoniJarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoniJarTests.m */; };
+		75FDC17CA5256C7915BCCAED /* libPods-MoniJar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A15C135BAA88CA0DC8FE92D /* libPods-MoniJar.a */; };
+		7FCE9AA226556C820092EB2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FCE9AA126556C820092EB2B /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8BE4FC672642D23B00CC334C /* Calibre-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE4FC642642D23B00CC334C /* Calibre-Light.ttf */; };
-		8BE4FC682642D23B00CC334C /* Calibre-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE4FC652642D23B00CC334C /* Calibre-SemiBold.ttf */; };
-		8BE4FC692642D23B00CC334C /* Calibre.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BE4FC662642D23B00CC334C /* Calibre.ttf */; };
-		A4A115C2D8283B69DD30BFC0 /* libPods-Moni-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421A968F545D65C384393ABB /* libPods-Moni-tvOS.a */; };
+		9459CCE0D0234C02BF1B680C /* Calibre.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493F19785F1A4A87AF6FC5D8 /* Calibre.ttf */; };
+		D1CCA2C5200B09CAF4808E02 /* libPods-MoniJar-MoniJarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1432D28586CA7F0F8CC08362 /* libPods-MoniJar-MoniJarTests.a */; };
+		D9734533F2594DD8B539B6C2 /* Calibre-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93556A2A08BF417C83558B26 /* Calibre-SemiBold.ttf */; };
+		E1DF298CB8C88960AEE91722 /* libPods-MoniJar-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B092CA256160C7A498AE99 /* libPods-MoniJar-tvOS.a */; };
+		F6EBBAC44F9C0AB5DAB6DE33 /* libPods-MoniJar-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7243DE3289114EAAFCCC5DA2 /* libPods-MoniJar-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,65 +32,49 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = Moni;
+			remoteInfo = MoniJar;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "Moni-tvOS";
+			remoteInfo = "MoniJar-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* MoniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* MoniJarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoniJarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* MoniTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoniTests.m; sourceTree = "<group>"; };
-		0583DF8801284CB1FEFBB2C1 /* Pods-Moni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni.release.xcconfig"; path = "Target Support Files/Pods-Moni/Pods-Moni.release.xcconfig"; sourceTree = "<group>"; };
-		0BE9D869B683C789E5EF925F /* Pods-Moni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni.debug.xcconfig"; path = "Target Support Files/Pods-Moni/Pods-Moni.debug.xcconfig"; sourceTree = "<group>"; };
-		0C80FFFF7C194A4486E2DA80 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Moni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moni.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Moni/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Moni/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Moni/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Moni/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Moni/main.m; sourceTree = "<group>"; };
-		19C5857A722C4F5F8C1FBF77 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* Moni-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Moni-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* Moni-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Moni-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AAF2AF2BFD54585AF78EA59 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		421A968F545D65C384393ABB /* libPods-Moni-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moni-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BBE1B1C11234E359026D49C /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		53B984F16D8D42AFBD624583 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		6E560B0E226F4DBE966E0CCE /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		7ED03CE113FFC10ED089622B /* libPods-Moni.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moni.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Moni/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8448F943C79BD8CBBAEE5438 /* Pods-Moni-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Moni-tvOSTests/Pods-Moni-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		85BA906EE2914098963BC8D6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		89E08AB5BDA14715AD16D545 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
-		8BE4FC642642D23B00CC334C /* Calibre-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Light.ttf"; path = "../src/assets/fonts/Calibre-Light.ttf"; sourceTree = "<group>"; };
-		8BE4FC652642D23B00CC334C /* Calibre-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-SemiBold.ttf"; path = "../src/assets/fonts/Calibre-SemiBold.ttf"; sourceTree = "<group>"; };
-		8BE4FC662642D23B00CC334C /* Calibre.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Calibre.ttf; path = ../src/assets/fonts/Calibre.ttf; sourceTree = "<group>"; };
-		91C6B0F8DF032F6FD7E2E92C /* libPods-Moni-MoniTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moni-MoniTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9702FB9577974D54B56C31BC /* Calibre-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Calibre-Regular.ttf"; path = "../src/assets/fonts/test/Calibre-Regular.ttf"; sourceTree = "<group>"; };
-		977398F0C99675965B993C6B /* Pods-Moni-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Moni-tvOSTests/Pods-Moni-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		9FC97355BB864E39A3B8F695 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		A87401412BBA4B68A0F87807 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		AF7D2FCD20C9786BB875CA88 /* libPods-Moni-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moni-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4D4491CF64C4BBF9DAB8D43 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		CC965D1C7264448E9217D15B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		D2D84811C60F1C0A2ACD3370 /* Pods-Moni-MoniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni-MoniTests.release.xcconfig"; path = "Target Support Files/Pods-Moni-MoniTests/Pods-Moni-MoniTests.release.xcconfig"; sourceTree = "<group>"; };
-		DB53F104D18740A68D250B1F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		DD3066B88A604873A78E0646 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		E2AA5D75FFB1627D9703145A /* Pods-Moni-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Moni-tvOS/Pods-Moni-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		E9876A725EA642629DB8E646 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		EA4E87739C0180C297335CA4 /* Pods-Moni-MoniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni-MoniTests.debug.xcconfig"; path = "Target Support Files/Pods-Moni-MoniTests/Pods-Moni-MoniTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EB5DC895980543B98EFB2CD2 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* MoniJarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoniJarTests.m; sourceTree = "<group>"; };
+		03BEADAA6989E0D19144D7A4 /* Pods-MoniJar-MoniJarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar-MoniJarTests.release.xcconfig"; path = "Target Support Files/Pods-MoniJar-MoniJarTests/Pods-MoniJar-MoniJarTests.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* MoniJar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoniJar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MoniJar/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MoniJar/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MoniJar/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MoniJar/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MoniJar/main.m; sourceTree = "<group>"; };
+		1432D28586CA7F0F8CC08362 /* libPods-MoniJar-MoniJarTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoniJar-MoniJarTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* MoniJar-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoniJar-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* MoniJar-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MoniJar-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C2D34AFE32F031FA27883CF /* Pods-MoniJar-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MoniJar-tvOSTests/Pods-MoniJar-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		493F19785F1A4A87AF6FC5D8 /* Calibre.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Calibre.ttf; path = ../src/assets/fonts/Calibre.ttf; sourceTree = "<group>"; };
+		4BC2B5BAB9DED919B2A84A6D /* Pods-MoniJar-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MoniJar-tvOS/Pods-MoniJar-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7243DE3289114EAAFCCC5DA2 /* libPods-MoniJar-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoniJar-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FCE9AA126556C820092EB2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "MoniJar/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MoniJar/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8A15C135BAA88CA0DC8FE92D /* libPods-MoniJar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoniJar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93556A2A08BF417C83558B26 /* Calibre-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Calibre-SemiBold.ttf"; path = "../src/assets/fonts/Calibre-SemiBold.ttf"; sourceTree = "<group>"; };
+		A7CBFE03B7CE47DC99B004F8 /* Calibre-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Calibre-Light.ttf"; path = "../src/assets/fonts/Calibre-Light.ttf"; sourceTree = "<group>"; };
+		A7F8E78F0453D5CDBBA56011 /* Pods-MoniJar-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar-tvOS.release.xcconfig"; path = "Target Support Files/Pods-MoniJar-tvOS/Pods-MoniJar-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		C31D8AE2230A7B0638CC3244 /* Pods-MoniJar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar.release.xcconfig"; path = "Target Support Files/Pods-MoniJar/Pods-MoniJar.release.xcconfig"; sourceTree = "<group>"; };
+		C7B092CA256160C7A498AE99 /* libPods-MoniJar-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoniJar-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9806985411E5665777D909B /* Pods-MoniJar-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-MoniJar-tvOSTests/Pods-MoniJar-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CFFC2F94D1E347A6B795B68A /* Pods-MoniJar-MoniJarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar-MoniJarTests.debug.xcconfig"; path = "Target Support Files/Pods-MoniJar-MoniJarTests/Pods-MoniJar-MoniJarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EE1FA272B72A855835F4802E /* Pods-Moni-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moni-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Moni-tvOS/Pods-Moni-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		FF585B3D7AC7152D83861E55 /* Pods-MoniJar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoniJar.debug.xcconfig"; path = "Target Support Files/Pods-MoniJar/Pods-MoniJar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F73F90EEE6DCBAA978E079D /* libPods-Moni-MoniTests.a in Frameworks */,
+				D1CCA2C5200B09CAF4808E02 /* libPods-MoniJar-MoniJarTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36A10B4A5810F0B37401797E /* libPods-Moni.a in Frameworks */,
+				75FDC17CA5256C7915BCCAED /* libPods-MoniJar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4A115C2D8283B69DD30BFC0 /* libPods-Moni-tvOS.a in Frameworks */,
+				E1DF298CB8C88960AEE91722 /* libPods-MoniJar-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,20 +106,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10451A7CC77E9E3A96B9325F /* libPods-Moni-tvOSTests.a in Frameworks */,
+				F6EBBAC44F9C0AB5DAB6DE33 /* libPods-MoniJar-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* MoniTests */ = {
+		00E356EF1AD99517003FC87E /* MoniJarTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* MoniTests.m */,
+				00E356F21AD99517003FC87E /* MoniJarTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = MoniTests;
+			path = MoniJarTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -145,9 +130,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* Moni */ = {
+		13B07FAE1A68108700A75B9A /* MoniJar */ = {
 			isa = PBXGroup;
 			children = (
+				7FCE9AA126556C820092EB2B /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -156,7 +142,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = Moni;
+			name = MoniJar;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -164,25 +150,25 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				7ED03CE113FFC10ED089622B /* libPods-Moni.a */,
-				91C6B0F8DF032F6FD7E2E92C /* libPods-Moni-MoniTests.a */,
-				421A968F545D65C384393ABB /* libPods-Moni-tvOS.a */,
-				AF7D2FCD20C9786BB875CA88 /* libPods-Moni-tvOSTests.a */,
+				8A15C135BAA88CA0DC8FE92D /* libPods-MoniJar.a */,
+				1432D28586CA7F0F8CC08362 /* libPods-MoniJar-MoniJarTests.a */,
+				C7B092CA256160C7A498AE99 /* libPods-MoniJar-tvOS.a */,
+				7243DE3289114EAAFCCC5DA2 /* libPods-MoniJar-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		47370B98C993A0FA91F28DAB /* Pods */ = {
+		43B3A74C91A893324F493F67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0BE9D869B683C789E5EF925F /* Pods-Moni.debug.xcconfig */,
-				0583DF8801284CB1FEFBB2C1 /* Pods-Moni.release.xcconfig */,
-				EA4E87739C0180C297335CA4 /* Pods-Moni-MoniTests.debug.xcconfig */,
-				D2D84811C60F1C0A2ACD3370 /* Pods-Moni-MoniTests.release.xcconfig */,
-				E2AA5D75FFB1627D9703145A /* Pods-Moni-tvOS.debug.xcconfig */,
-				EE1FA272B72A855835F4802E /* Pods-Moni-tvOS.release.xcconfig */,
-				8448F943C79BD8CBBAEE5438 /* Pods-Moni-tvOSTests.debug.xcconfig */,
-				977398F0C99675965B993C6B /* Pods-Moni-tvOSTests.release.xcconfig */,
+				FF585B3D7AC7152D83861E55 /* Pods-MoniJar.debug.xcconfig */,
+				C31D8AE2230A7B0638CC3244 /* Pods-MoniJar.release.xcconfig */,
+				CFFC2F94D1E347A6B795B68A /* Pods-MoniJar-MoniJarTests.debug.xcconfig */,
+				03BEADAA6989E0D19144D7A4 /* Pods-MoniJar-MoniJarTests.release.xcconfig */,
+				4BC2B5BAB9DED919B2A84A6D /* Pods-MoniJar-tvOS.debug.xcconfig */,
+				A7F8E78F0453D5CDBBA56011 /* Pods-MoniJar-tvOS.release.xcconfig */,
+				C9806985411E5665777D909B /* Pods-MoniJar-tvOSTests.debug.xcconfig */,
+				3C2D34AFE32F031FA27883CF /* Pods-MoniJar-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -197,16 +183,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				8BE4FC642642D23B00CC334C /* Calibre-Light.ttf */,
-				8BE4FC652642D23B00CC334C /* Calibre-SemiBold.ttf */,
-				8BE4FC662642D23B00CC334C /* Calibre.ttf */,
-				13B07FAE1A68108700A75B9A /* Moni */,
+				13B07FAE1A68108700A75B9A /* MoniJar */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* MoniTests */,
+				00E356EF1AD99517003FC87E /* MoniJarTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				47370B98C993A0FA91F28DAB /* Pods */,
-				FC649412F38B4D94AFA44B8B /* Resources */,
+				43B3A74C91A893324F493F67 /* Pods */,
+				E8BBDB753BB64331B4C867B4 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -216,34 +199,20 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Moni.app */,
-				00E356EE1AD99517003FC87E /* MoniTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* Moni-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* Moni-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* MoniJar.app */,
+				00E356EE1AD99517003FC87E /* MoniJarTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* MoniJar-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* MoniJar-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC649412F38B4D94AFA44B8B /* Resources */ = {
+		E8BBDB753BB64331B4C867B4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6E560B0E226F4DBE966E0CCE /* AntDesign.ttf */,
-				0C80FFFF7C194A4486E2DA80 /* Entypo.ttf */,
-				CC965D1C7264448E9217D15B /* EvilIcons.ttf */,
-				E9876A725EA642629DB8E646 /* Feather.ttf */,
-				4BBE1B1C11234E359026D49C /* FontAwesome.ttf */,
-				19C5857A722C4F5F8C1FBF77 /* FontAwesome5_Brands.ttf */,
-				C4D4491CF64C4BBF9DAB8D43 /* FontAwesome5_Regular.ttf */,
-				EB5DC895980543B98EFB2CD2 /* FontAwesome5_Solid.ttf */,
-				89E08AB5BDA14715AD16D545 /* Fontisto.ttf */,
-				DD3066B88A604873A78E0646 /* Foundation.ttf */,
-				DB53F104D18740A68D250B1F /* Ionicons.ttf */,
-				85BA906EE2914098963BC8D6 /* MaterialCommunityIcons.ttf */,
-				A87401412BBA4B68A0F87807 /* MaterialIcons.ttf */,
-				9FC97355BB864E39A3B8F695 /* Octicons.ttf */,
-				53B984F16D8D42AFBD624583 /* SimpleLineIcons.ttf */,
-				3AAF2AF2BFD54585AF78EA59 /* Zocial.ttf */,
-				9702FB9577974D54B56C31BC /* Calibre-Regular.ttf */,
+				A7CBFE03B7CE47DC99B004F8 /* Calibre-Light.ttf */,
+				93556A2A08BF417C83558B26 /* Calibre-SemiBold.ttf */,
+				493F19785F1A4A87AF6FC5D8 /* Calibre.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -251,52 +220,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* MoniTests */ = {
+		00E356ED1AD99517003FC87E /* MoniJarTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoniTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoniJarTests" */;
 			buildPhases = (
-				817243E93A1065E79935991C /* [CP] Check Pods Manifest.lock */,
+				FB6297C09D7FF127D87412EC /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				3079FC85929285884F6C1233 /* [CP] Copy Pods Resources */,
+				A87F378302B04ED9B9CFE250 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = MoniTests;
-			productName = MoniTests;
-			productReference = 00E356EE1AD99517003FC87E /* MoniTests.xctest */;
+			name = MoniJarTests;
+			productName = MoniJarTests;
+			productReference = 00E356EE1AD99517003FC87E /* MoniJarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* Moni */ = {
+		13B07F861A680F5B00A75B9A /* MoniJar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Moni" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoniJar" */;
 			buildPhases = (
-				B15E92131929FA7ADE6C0153 /* [CP] Check Pods Manifest.lock */,
+				0726FF027CE0D205681F4A28 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				FD4097035F9BCEA306D01690 /* [CP] Copy Pods Resources */,
+				BCA652DB592BE0F67BB45171 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Moni;
-			productName = Moni;
-			productReference = 13B07F961A680F5B00A75B9A /* Moni.app */;
+			name = MoniJar;
+			productName = MoniJar;
+			productReference = 13B07F961A680F5B00A75B9A /* MoniJar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* Moni-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* MoniJar-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Moni-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MoniJar-tvOS" */;
 			buildPhases = (
-				F197FC886B733840BC4221EC /* [CP] Check Pods Manifest.lock */,
+				B4DB0E74668AC45F07987A54 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -307,16 +276,16 @@
 			);
 			dependencies = (
 			);
-			name = "Moni-tvOS";
-			productName = "Moni-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* Moni-tvOS.app */;
+			name = "MoniJar-tvOS";
+			productName = "MoniJar-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* MoniJar-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* Moni-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* MoniJar-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Moni-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MoniJar-tvOSTests" */;
 			buildPhases = (
-				FFC6243E78F55A171A4B0516 /* [CP] Check Pods Manifest.lock */,
+				C5381001BAC6BA2DFF832E62 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -326,9 +295,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "Moni-tvOSTests";
-			productName = "Moni-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* Moni-tvOSTests.xctest */;
+			name = "MoniJar-tvOSTests";
+			productName = "MoniJar-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* MoniJar-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -344,7 +313,6 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 2T43SP3SA9;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -358,7 +326,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Moni" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MoniJar" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -371,10 +339,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Moni */,
-				00E356ED1AD99517003FC87E /* MoniTests */,
-				2D02E47A1E0B4A5D006451C7 /* Moni-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* Moni-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* MoniJar */,
+				00E356ED1AD99517003FC87E /* MoniJarTests */,
+				2D02E47A1E0B4A5D006451C7 /* MoniJar-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* MoniJar-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -391,11 +359,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BE4FC672642D23B00CC334C /* Calibre-Light.ttf in Resources */,
-				8BE4FC682642D23B00CC334C /* Calibre-SemiBold.ttf in Resources */,
-				8BE4FC692642D23B00CC334C /* Calibre.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				265F45D4ED9143DD96503E8B /* Calibre-Light.ttf in Resources */,
+				D9734533F2594DD8B539B6C2 /* Calibre-SemiBold.ttf in Resources */,
+				9459CCE0D0234C02BF1B680C /* Calibre.ttf in Resources */,
+				7FCE9AA226556C820092EB2B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +398,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		0726FF027CE0D205681F4A28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoniJar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -445,13 +436,13 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		3079FC85929285884F6C1233 /* [CP] Copy Pods Resources */ = {
+		A87F378302B04ED9B9CFE250 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Moni-MoniTests/Pods-Moni-MoniTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MoniJar-MoniJarTests/Pods-MoniJar-MoniJarTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -460,10 +451,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Moni-MoniTests/Pods-Moni-MoniTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoniJar-MoniJarTests/Pods-MoniJar-MoniJarTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		817243E93A1065E79935991C /* [CP] Check Pods Manifest.lock */ = {
+		B4DB0E74668AC45F07987A54 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -478,14 +469,32 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Moni-MoniTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MoniJar-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B15E92131929FA7ADE6C0153 /* [CP] Check Pods Manifest.lock */ = {
+		BCA652DB592BE0F67BB45171 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoniJar/Pods-MoniJar-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoniJar/Pods-MoniJar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5381001BAC6BA2DFF832E62 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,14 +509,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Moni-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MoniJar-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F197FC886B733840BC4221EC /* [CP] Check Pods Manifest.lock */ = {
+		FB6297C09D7FF127D87412EC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -522,7 +531,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Moni-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MoniJar-MoniJarTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -567,46 +576,6 @@
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FD4097035F9BCEA306D01690 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Moni/Pods-Moni-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Moni/Pods-Moni-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FFC6243E78F55A171A4B0516 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Moni-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -614,7 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* MoniTests.m in Sources */,
+				00E356F31AD99517003FC87E /* MoniJarTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,7 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* MoniTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* MoniJarTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,12 +618,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* Moni */;
+			target = 13B07F861A680F5B00A75B9A /* MoniJar */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* Moni-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* MoniJar-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -662,14 +631,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA4E87739C0180C297335CA4 /* Pods-Moni-MoniTests.debug.xcconfig */;
+			baseConfigurationReference = CFFC2F94D1E347A6B795B68A /* Pods-MoniJar-MoniJarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = MoniTests/Info.plist;
+				INFOPLIST_FILE = MoniJarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -679,17 +648,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moni.app/Moni";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoniJar.app/MoniJar";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2D84811C60F1C0A2ACD3370 /* Pods-Moni-MoniTests.release.xcconfig */;
+			baseConfigurationReference = 03BEADAA6989E0D19144D7A4 /* Pods-MoniJar-MoniJarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = MoniTests/Info.plist;
+				INFOPLIST_FILE = MoniJarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -699,28 +668,27 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moni.app/Moni";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoniJar.app/MoniJar";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BE9D869B683C789E5EF925F /* Pods-Moni.debug.xcconfig */;
+			baseConfigurationReference = FF585B3D7AC7152D83861E55 /* Pods-MoniJar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2T43SP3SA9;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Moni/Info.plist;
+				INFOPLIST_FILE = MoniJar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Moni;
+				PRODUCT_BUNDLE_IDENTIFIER = co.shipyard.monijar;
+				PRODUCT_NAME = MoniJar;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -729,21 +697,20 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0583DF8801284CB1FEFBB2C1 /* Pods-Moni.release.xcconfig */;
+			baseConfigurationReference = C31D8AE2230A7B0638CC3244 /* Pods-MoniJar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2T43SP3SA9;
-				INFOPLIST_FILE = Moni/Info.plist;
+				INFOPLIST_FILE = MoniJar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Moni;
+				PRODUCT_BUNDLE_IDENTIFIER = co.shipyard.monijar;
+				PRODUCT_NAME = MoniJar;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -751,7 +718,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2AA5D75FFB1627D9703145A /* Pods-Moni-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 4BC2B5BAB9DED919B2A84A6D /* Pods-MoniJar-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -762,14 +729,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Moni-tvOS/Info.plist";
+				INFOPLIST_FILE = "MoniJar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Moni-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.MoniJar-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -779,7 +746,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE1FA272B72A855835F4802E /* Pods-Moni-tvOS.release.xcconfig */;
+			baseConfigurationReference = A7F8E78F0453D5CDBBA56011 /* Pods-MoniJar-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -790,14 +757,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Moni-tvOS/Info.plist";
+				INFOPLIST_FILE = "MoniJar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Moni-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.MoniJar-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -807,7 +774,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8448F943C79BD8CBBAEE5438 /* Pods-Moni-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = C9806985411E5665777D909B /* Pods-MoniJar-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -817,24 +784,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Moni-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "MoniJar-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Moni-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.MoniJar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moni-tvOS.app/Moni-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoniJar-tvOS.app/MoniJar-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 977398F0C99675965B993C6B /* Pods-Moni-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 3C2D34AFE32F031FA27883CF /* Pods-MoniJar-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -844,17 +811,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Moni-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "MoniJar-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Moni-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.MoniJar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moni-tvOS.app/Moni-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoniJar-tvOS.app/MoniJar-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -975,7 +942,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoniTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoniJarTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -984,7 +951,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Moni" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoniJar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -993,7 +960,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Moni-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MoniJar-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1002,7 +969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Moni-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "MoniJar-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1011,7 +978,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Moni" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MoniJar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
