@@ -1,15 +1,15 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 import colors from "../../../constants/colors";
 import { calibre13 } from "../../../constants/typography";
 
 export default function ListItem(props) {
-  const { title, image } = props;
+  const { title, image, onPress } = props;
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Image style={styles.image} resizeMode="contain" source={image} />
       <Text style={styles.text}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 

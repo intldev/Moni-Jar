@@ -19,6 +19,7 @@ import Rewards from "../../assets/images/rewards.png";
 import Settings from "../../assets/images/settings.png";
 import IncompleteTransfers from "../../assets/images/incompleteTransfers.png";
 import GetHelp from "../../assets/images/getHelp.png";
+import { logout } from "../../constants/utils/auth";
 
 export default function CustomDrawerContent(props) {
   const listItems = [
@@ -49,6 +50,9 @@ export default function CustomDrawerContent(props) {
     {
       title: "Settings",
       image: Settings,
+      onPress: ()=>{
+        logout(props.navigation)
+      }
     },
     {
       title: "Get Help",
@@ -62,7 +66,12 @@ export default function CustomDrawerContent(props) {
         <Item title="X Jars Active" />
         {listItems?.map((item, index) => {
           return (
-            <ListItem title={item?.title} key={index} image={item.image} />
+            <ListItem 
+              title={item?.title} 
+              key={index} 
+              image={item.image} 
+              onPress={item.onPress}
+            />
           );
         })}
         <Item title="Make a transfer" />
