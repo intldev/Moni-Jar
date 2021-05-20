@@ -22,33 +22,29 @@ const client = new ApolloClient({
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
-  const [isInitializing, user] = useAuth();
-
-  if (isInitializing) return null;
-
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={user ? "Drawer" : "Auth"}
-        headerMode="none"
-      >
-        <Stack.Screen name="Drawer" component={DrawerNavigator} />
-        <Stack.Screen name="Auth" component={Auth} />
-        <Stack.Screen name="SignupOptions" component={SignupOptions} />
-        <Stack.Screen
-          name="SigninOptions"
-          component={SignupOptions}
-          initialParams={{ signin: true }}
-        />
-        <Stack.Screen name="SignupEmail" component={SignupEmail} />
-        <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
-          options={{ title: "Splash", headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+  const navigation = (
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Drawer" headerMode="none">
+          <Stack.Screen name="Drawer" component={DrawerNavigator} />
+          <Stack.Screen name="Auth" component={Auth} />
+          <Stack.Screen name="SignupOptions" component={SignupOptions} />
+          <Stack.Screen
+            name="SigninOptions"
+            component={SignupOptions}
+            initialParams={{ signin: true }}
+          />
+          <Stack.Screen name="SignupEmail" component={SignupEmail} />
+          <Stack.Screen
+            name="Splash"
+            component={SplashScreen}
+            options={{ title: "Splash", headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+     </ApolloProvider>
   );
+  return navigation;
 };
 
 export default AppNavigator;
