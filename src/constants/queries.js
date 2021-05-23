@@ -5,6 +5,7 @@ export const USER_DETAILS = gql`
     firstName @client
     lastName @client
     phone @client
+    jarMembershipsByUserId @client
     }
 `;
 
@@ -14,6 +15,9 @@ export const USER = gql`
         firstName
         lastName
         phone
+        jarMembershipsByUserId {
+          totalCount
+        }
       }
     }
 `
