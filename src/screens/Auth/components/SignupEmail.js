@@ -47,7 +47,10 @@ export default function SignupEmail(props) {
   const [errors, setErrors] = useState({
     ...initailErrors,
   });
+
+  const [isLoading, setIsLoading] = useState(false);
   const [submitOnce, setSubmitOnce] = useState(false);
+  const [apiError, setApiError] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState(
     errorMessages.validationField,
@@ -165,7 +168,7 @@ export default function SignupEmail(props) {
           <TouchableOpacity style={styles.linkButtonContainer}>
             <Text style={styles.helpfulInformation}>Helpful Information</Text>
           </TouchableOpacity>
-          {isError() ? (
+          {isError() || apiError ? (
             <Text style={styles.finishText}>
               {errorMessage}
               <Text style={styles.asterisk}>*</Text>
@@ -176,6 +179,8 @@ export default function SignupEmail(props) {
             containerStyles={styles.button}
             textStyles={styles.buttonText}
             onPress={submit}
+            isLoading={isLoading}
+            activityColor={colors.blue}
           />
           <Text style={styles.reviewText}>
             By submitting, you confirm that you are authorized to use the number
@@ -208,6 +213,7 @@ export default function SignupEmail(props) {
   }
   function submit() {
     setSubmitOnce(true);
+    setIsLoading(true);
     const { validated } = validate();
     if (validated) {
       auth()
@@ -220,16 +226,12 @@ export default function SignupEmail(props) {
           navigation.navigate("Drawer");
         })
         .catch(error => {
-          if (error.code === "auth/email-already-in-use") {
-            console.log("That email address is already in use!");
-          }
-
-          if (error.code === "auth/invalid-email") {
-            console.log("That email address is invalid!");
-          }
-
-          console.error(error);
-        });
+          setApiError(true);
+          setErrorMessage(error.nativeErrorMessage)
+        })
+        .finally(() => {
+          setIsLoading(false);
+        })
     }
   }
   function validate() {
