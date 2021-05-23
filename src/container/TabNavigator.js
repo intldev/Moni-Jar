@@ -12,6 +12,9 @@ import Navbar from "../cpts/Navbar";
 
 // screens
 import HomeScreen from "../screens/HomeScreen";
+import JarScreen from "../screens/JarScreen";
+
+// graphql
 import { useQuery } from "@apollo/client";
 import { USER } from "../constants/queries";
 import { firstNameVar, jarMembershipsByUserIdVar, lastNameVar, phoneVar } from "../cache";
@@ -34,7 +37,7 @@ export default function TabNavigator(props) {
     },
     {
       title: "Your Jars",
-      component: HomeScreen,
+      component: JarScreen,
     },
   ];
 
