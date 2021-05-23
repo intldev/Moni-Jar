@@ -11,7 +11,14 @@ import Logo from "../assets/images/logo.png";
 // constnats
 import colors from "../constants/colors";
 
+// graphql
+import { USER_DETAILS } from '../constants/queries';
+import { useQuery } from "@apollo/client";
+
 export default function Navbar(props) {
+
+  const { data } = useQuery(USER_DETAILS);
+  const { firstName = '', lastName = '' } = data;
   const { navigation } = props;
 
   return (
@@ -19,7 +26,7 @@ export default function Navbar(props) {
       <Image source={Logo} resizeMode="contain" style={styles.logoImage} />
       <TouchableOpacity style={styles.detailContainer} onPress={openDrawer}>
         <UserProfile />
-        <Text style={styles.userName}>Rachel Caires</Text>
+        <Text style={styles.userName}>{firstName} {lastName}</Text>
         <AngleDown size={15} color={colors.black} />
       </TouchableOpacity>
     </View>

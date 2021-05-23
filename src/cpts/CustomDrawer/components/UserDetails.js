@@ -3,10 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 import colors from "../../../constants/colors";
 import { calibre13 } from "../../../constants/typography";
 
-export default function UserDetails() {
+export default function UserDetails(props) {
+  const { displayName } = props;
   return (
     <View>
-      <Text style={styles.nameText}>Hi, Rachel</Text>
+      <Text style={styles.nameText}>Hi, {displayName}</Text>
       <View style={styles.usernameContainer}>
         <Text style={styles.usernameText}>@Rachel-Caires</Text>
         <View style={styles.dot} />
