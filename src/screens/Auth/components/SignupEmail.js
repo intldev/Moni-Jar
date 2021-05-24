@@ -86,9 +86,10 @@ export default function SignupEmail(props) {
 
   useEffect(() => {
     if (data) {
-      setFirstName(firstName);
-      setLastName(lastName);
-      setPhone(phone);
+      const { user } = data?.createUser;
+      setFirstName(user?.firstName);
+      setLastName(user?.lastName);
+      setPhone(user?.phone);
       navigation.navigate("Drawer");
     }
     if (data || error) {
