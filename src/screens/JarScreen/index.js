@@ -78,10 +78,6 @@ export default function JarScreen() {
                 data.length === 0 ? (
                     <View style={styles.emptyContainer}>
                         <Image
-                            source={startJarImage}
-                            style={styles.startJarImage}
-                        />
-                        <Image
                             source={jarGraphic}
                             style={styles.startJarGraphic}
                         />
@@ -149,7 +145,7 @@ const styles = StyleSheet.create({
     },
     startJarGraphic: {
         resizeMode: 'contain',
-        height: '50%',
+        height: '60%',
         alignSelf: 'center'
     }
 })
