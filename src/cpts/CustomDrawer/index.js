@@ -21,6 +21,10 @@ import IncompleteTransfers from "../../assets/images/incompleteTransfers.png";
 import GetHelp from "../../assets/images/getHelp.png";
 import { logout } from "../../constants/utils/auth";
 
+// graphql
+import { USER_DETAILS } from "../../constants/queries";
+import { useQuery } from "@apollo/client";
+
 export default function CustomDrawerContent(props) {
   const listItems = [
     {
@@ -50,26 +54,30 @@ export default function CustomDrawerContent(props) {
     {
       title: "Settings",
       image: Settings,
-      onPress: ()=>{
-        logout(props.navigation)
-      }
+      onPress: () => {
+        logout(props.navigation);
+      },
     },
     {
       title: "Get Help",
       image: GetHelp,
     },
   ];
+
+  const { data } = useQuery(USER_DETAILS);
+  const { firstName = "", lastName = "" } = data;
+
   return (
     <DrawerContentScrollView {...props} style={styles.drawerScrollView}>
       <View style={styles.container}>
-        <UserDetails />
+        <UserDetails firstName={firstName} />
         <Item title="X Jars Active" />
         {listItems?.map((item, index) => {
           return (
-            <ListItem 
-              title={item?.title} 
-              key={index} 
-              image={item.image} 
+            <ListItem
+              title={item?.title}
+              key={index}
+              image={item.image}
               onPress={item.onPress}
             />
           );
