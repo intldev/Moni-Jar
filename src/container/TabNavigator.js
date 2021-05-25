@@ -4,7 +4,7 @@ import LinearGradient from "react-native-linear-gradient";
 
 // constants
 import colors from "../constants/colors";
-import auth from '@react-native-firebase/auth';
+import auth from "@react-native-firebase/auth";
 
 // components
 import MyStatusBar from "../cpts/StatusBar";
@@ -14,13 +14,18 @@ import Navbar from "../cpts/Navbar";
 import HomeScreen from "../screens/HomeScreen";
 import { useQuery } from "@apollo/client";
 import { USER } from "../constants/queries";
-import { firstNameVar, lastNameVar, phoneVar } from "../cache";
+import {
+  firstNameVar,
+  jarMembershipsByUserIdVar,
+  lastNameVar,
+  phoneVar,
+} from "../cache";
 
 export default function TabNavigator(props) {
   const { data } = useQuery(USER, {
     variables: {
-      id: auth()?.currentUser?.uid
-    }
+      id: auth()?.currentUser?.uid,
+    },
   });
 
   const [activeTab, setActiveTab] = useState(0);
@@ -42,12 +47,15 @@ export default function TabNavigator(props) {
 
   useEffect(() => {
     if (data?.user) {
-      const { firstName, lastName, phone } = data.user;
+      const { firstName, lastName, phone, jarMembershipsByUserId } = data.user;
       firstNameVar(firstName);
       lastNameVar(lastName);
       phoneVar(phone);
+      jarMembershipsByUserIdVar({
+        totalCount: jarMembershipsByUserId?.totalCount,
+      });
     }
-  }, [data])
+  }, [data]);
 
   return (
     <View style={{ flex: 1 }}>

@@ -65,13 +65,14 @@ export default function CustomDrawerContent(props) {
   ];
 
   const { data } = useQuery(USER_DETAILS);
-  const { firstName = "", lastName = "" } = data;
+  const { firstName = "", jarMembershipsByUserId } = data;
 
+  const totalJars = jarMembershipsByUserId?.totalCount;
   return (
     <DrawerContentScrollView {...props} style={styles.drawerScrollView}>
       <View style={styles.container}>
         <UserDetails firstName={firstName} />
-        <Item title="X Jars Active" />
+        <Item title={`${totalJars} Jars Active`} />
         {listItems?.map((item, index) => {
           return (
             <ListItem
