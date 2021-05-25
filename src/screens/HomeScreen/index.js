@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 
 // constants
 import colors from "../../constants/colors";
@@ -77,7 +77,6 @@ const data = [
 
 export default function HomeScreen(props) {
   const renderItem = ({ item }) => <ListItem item={item} />;
-
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>

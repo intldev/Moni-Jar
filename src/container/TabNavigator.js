@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 // constants
 import colors from "../constants/colors";
+import auth from '@react-native-firebase/auth';
 
 // components
 import MyStatusBar from "../cpts/StatusBar";
@@ -11,8 +12,17 @@ import Navbar from "../cpts/Navbar";
 
 // screens
 import HomeScreen from "../screens/HomeScreen";
+import { useQuery } from "@apollo/client";
+import { USER } from "../constants/queries";
+import { firstNameVar, lastNameVar, phoneVar } from "../cache";
 
 export default function TabNavigator(props) {
+  const { data } = useQuery(USER, {
+    variables: {
+      id: auth()?.currentUser?.uid
+    }
+  });
+
   const [activeTab, setActiveTab] = useState(0);
 
   const { navigation } = props;
@@ -29,6 +39,15 @@ export default function TabNavigator(props) {
   ];
 
   const Component = tabs[activeTab].component;
+
+  useEffect(() => {
+    if (data?.user) {
+      const { firstName, lastName, phone } = data.user;
+      firstNameVar(firstName);
+      lastNameVar(lastName);
+      phoneVar(phone);
+    }
+  }, [data])
 
   return (
     <View style={{ flex: 1 }}>

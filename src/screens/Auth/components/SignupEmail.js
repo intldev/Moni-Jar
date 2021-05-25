@@ -12,11 +12,20 @@ import auth from "@react-native-firebase/auth";
 // constants
 import colors from "../../../constants/colors";
 import { errorMessages } from "../../../constants/variable";
+import { useMutation } from '@apollo/client';
 
 // components
 import AppCheckbox from "../../../cpts/base/Checkbox";
 import TextField from "../../../cpts/base/TextField";
 import Button from "../../../cpts/base/Button";
+import { CREATE_USER } from "../../../constants/mutations";
+
+// apollo caching variables
+import {
+  firstNameVar as setFirstName,
+  lastNameVar as setLastName,
+  phoneVar as setPhone
+} from '../../../cache';
 
 const initailErrors = {
   firstName: false,
@@ -55,9 +64,9 @@ export default function SignupEmail(props) {
   const [errorMessage, setErrorMessage] = useState(
     errorMessages.validationField,
   );
+  const [createUser, { data, error }] = useMutation(CREATE_USER);
 
   const { navigation } = props;
-
   const {
     firstName,
     lastName,
@@ -74,6 +83,19 @@ export default function SignupEmail(props) {
       validate();
     }
   }, [details, submitOnce]);
+
+  useEffect(() => {
+    if (data) {
+      const { user } = data?.createUser;
+      setFirstName(user?.firstName);
+      setLastName(user?.lastName);
+      setPhone(user?.phone);
+      navigation.navigate("Drawer");
+    }
+    if (data || error) {
+      setIsLoading(false);
+    }
+  }, [data, error]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -220,16 +242,22 @@ export default function SignupEmail(props) {
         .createUserWithEmailAndPassword(details.email, details.password)
         .then(res => {
           const uid = res.user.uid;
-
-          alert(uid);
-
-          navigation.navigate("Drawer");
+          createUser({
+            variables: {
+              input: {
+                user: {
+                  firstName,
+                  id: uid,
+                  lastName,
+                  phone
+                }
+              }
+            }
+          });
         })
         .catch(error => {
           setApiError(true);
           setErrorMessage(error.nativeErrorMessage)
-        })
-        .finally(() => {
           setIsLoading(false);
         })
     }

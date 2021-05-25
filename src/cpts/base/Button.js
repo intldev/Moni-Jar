@@ -12,8 +12,8 @@ export default function Button(props) {
     >
       {
         isLoading ? (
-          <ActivityIndicator 
-            style={[styles.activityStyles, activityStyles]} 
+          <ActivityIndicator
+            style={[styles.activityStyles, activityStyles]}
             color={activityColor}
           />
         ) : (
