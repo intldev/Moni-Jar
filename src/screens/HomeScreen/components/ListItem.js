@@ -107,7 +107,7 @@ export default function ListItem(props) {
           >
             {
               item?.daysLeft ? (
-                <Text style={styles.daysLeftTitle}>Days left: <Text style={styles.daysLeftValue}>{item?.daysLeft}</Text></Text>
+                <Text style={styles.title}>Days left: <Text style={styles.daysLeftValue}>{item?.daysLeft}</Text></Text>
               ) : (
                 <>
                   <View style={styles.iconContainer}>
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   imageContainer: {
-    marginLeft: -10,
+    marginLeft: -11.5,
   },
   contentContainer: {
     paddingLeft: baseHeight,
