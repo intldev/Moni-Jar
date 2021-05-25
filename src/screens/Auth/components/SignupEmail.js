@@ -12,7 +12,7 @@ import auth from "@react-native-firebase/auth";
 // constants
 import colors from "../../../constants/colors";
 import { errorMessages } from "../../../constants/variable";
-import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 
 // components
 import AppCheckbox from "../../../cpts/base/Checkbox";
@@ -24,8 +24,8 @@ import { CREATE_USER } from "../../../constants/mutations";
 import {
   firstNameVar as setFirstName,
   lastNameVar as setLastName,
-  phoneVar as setPhone
-} from '../../../cache';
+  phoneVar as setPhone,
+} from "../../../cache";
 
 const initailErrors = {
   firstName: false,
@@ -86,9 +86,10 @@ export default function SignupEmail(props) {
 
   useEffect(() => {
     if (data) {
-      setFirstName(firstName);
-      setLastName(lastName);
-      setPhone(phone);
+      const { user } = data?.createUser;
+      setFirstName(user?.firstName);
+      setLastName(user?.lastName);
+      setPhone(user?.phone);
       navigation.navigate("Drawer");
     }
     if (data || error) {
@@ -248,19 +249,17 @@ export default function SignupEmail(props) {
                   firstName,
                   id: uid,
                   lastName,
-                  phone
-                }
-              }
-            }
+                  phone,
+                },
+              },
+            },
           });
         })
         .catch(error => {
           setApiError(true);
-          setErrorMessage(error.nativeErrorMessage)
-        })
-        .finally(() => {
+          setErrorMessage(error.nativeErrorMessage);
           setIsLoading(false);
-        })
+        });
     }
   }
   function validate() {

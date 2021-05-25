@@ -4,7 +4,7 @@ import LinearGradient from "react-native-linear-gradient";
 
 // constants
 import colors from "../constants/colors";
-import auth from '@react-native-firebase/auth';
+import auth from "@react-native-firebase/auth";
 
 // components
 import MyStatusBar from "../cpts/StatusBar";
@@ -17,13 +17,18 @@ import JarScreen from "../screens/JarScreen";
 // graphql
 import { useQuery } from "@apollo/client";
 import { USER } from "../constants/queries";
-import { firstNameVar, jarMembershipsByUserIdVar, lastNameVar, phoneVar } from "../cache";
+import {
+  firstNameVar,
+  jarMembershipsByUserIdVar,
+  lastNameVar,
+  phoneVar,
+} from "../cache";
 
 export default function TabNavigator(props) {
   const { data } = useQuery(USER, {
     variables: {
-      id: auth()?.currentUser?.uid
-    }
+      id: auth()?.currentUser?.uid,
+    },
   });
 
   const [activeTab, setActiveTab] = useState(0);
@@ -49,9 +54,11 @@ export default function TabNavigator(props) {
       firstNameVar(firstName);
       lastNameVar(lastName);
       phoneVar(phone);
-      jarMembershipsByUserIdVar({ totalCount: jarMembershipsByUserId?.totalCount });
+      jarMembershipsByUserIdVar({
+        totalCount: jarMembershipsByUserId?.totalCount,
+      });
     }
-  }, [data])
+  }, [data]);
 
   return (
     <View style={{ flex: 1 }}>
