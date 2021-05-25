@@ -258,8 +258,6 @@ export default function SignupEmail(props) {
         .catch(error => {
           setApiError(true);
           setErrorMessage(error.nativeErrorMessage)
-        })
-        .finally(() => {
           setIsLoading(false);
         })
     }
