@@ -8,6 +8,7 @@ import Auth from "../screens/Auth";
 import SplashScreen from "../screens/SplashScreen";
 import SignupOptions from "../screens/Auth/components/SignupOptions";
 import SignupEmail from "../screens/Auth/components/SignupEmail";
+import SigninEmail from "../screens/Auth/components/SigninEmail";
 import useAuth from "../utils/hooks/useAuth";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
@@ -39,6 +40,7 @@ const AppNavigator = () => {
             initialParams={{ signin: true }}
           />
           <Stack.Screen name="SignupEmail" component={SignupEmail} />
+          <Stack.Screen name="SigninEmail" component={SigninEmail} />
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
