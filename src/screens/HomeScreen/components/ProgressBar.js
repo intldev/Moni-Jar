@@ -1,19 +1,23 @@
 import React from "react";
 import colors from "../../../constants/colors";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 export default function ProgressBar(props) {
+
+  const { progressText, progress } = props;
+
   return (
     <View style={styles.container}>
       <View
         style={[
           styles.completed,
           {
-            width: `${props.progress * 100}%`,
+            width: `${progress * 100}%`,
           },
         ]}
       >
-        {props.progress !== 0 ? <View style={styles.sharp}></View> : null}
+        <Text style={styles.progressText}>{progressText}</Text>
+        {progress !== 0 ? <View style={styles.sharp}></View> : null}
       </View>
     </View>
   );
@@ -33,6 +37,7 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: colors.progressBar.completed,
     borderRadius: 40,
+    justifyContent: 'center'
   },
   sharp: {
     height: "100%",
@@ -47,4 +52,9 @@ const styles = StyleSheet.create({
       },
     ],
   },
+  progressText: {
+    fontSize: 9,
+    alignSelf: 'center',
+    fontFamily: 'Calibre-SemiBold'
+  }
 });
