@@ -213,9 +213,9 @@ export default function SignupEmail(props) {
   }
   function submit() {
     setSubmitOnce(true);
-    setIsLoading(true);
     const { validated } = validate();
     if (validated) {
+      setIsLoading(true);
       auth()
         .createUserWithEmailAndPassword(details.email, details.password)
         .then(res => {
