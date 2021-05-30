@@ -26,10 +26,9 @@ export default function SignupOptions(props) {
           title={`SIGN ${signin ? "IN" : "UP"} WITH EMAIL`}
           containerStyles={[styles.button, { marginTop: 38 }]}
           onPress={() => {
-            if(signin){
+            if (signin) {
               navigation.navigate("SigninEmail");
-            }
-            else{
+            } else {
               navigation.navigate("SignupEmail");
             }
           }}

@@ -3,7 +3,6 @@ import colors from "../../../constants/colors";
 import { View, StyleSheet, Text } from "react-native";
 
 export default function ProgressBar(props) {
-
   const { progressText, progress } = props;
 
   return (
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: colors.progressBar.completed,
     borderRadius: 40,
-    justifyContent: 'center'
+    justifyContent: "center",
   },
   sharp: {
     height: "100%",
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
   },
   progressText: {
     fontSize: 9,
-    alignSelf: 'center',
-    fontFamily: 'Calibre-SemiBold'
-  }
+    alignSelf: "center",
+    fontFamily: "Calibre-SemiBold",
+  },
 });
