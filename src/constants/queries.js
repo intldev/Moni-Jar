@@ -21,3 +21,31 @@ export const USER = gql`
     }
   }
 `;
+
+
+export const JAR_MEMBERSHIPS = gql`
+  query JarMemberships($input: String!) {
+    jarMemberships(condition: {userId: $input}) {
+      nodes {
+        isAdmin
+        jar {
+          savingsGoal
+          deadline
+          jarMembershipsByJarId {
+            nodes {
+              user {
+                firstName
+                lastName
+              }
+            }
+          }
+        }
+        user {
+          firstName
+          lastName
+          phone
+        }
+      }
+    }
+  }
+`

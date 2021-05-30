@@ -13,4 +13,54 @@ const CREATE_USER = gql`
   }
 `;
 
-export { CREATE_USER };
+const CREATE_JAR = gql`
+  mutation CreateJar($input: CreateJarInput!) {
+    createJar(input: $input) {
+      jar {
+        id
+        savingsGoal
+        deadline
+        jarMembershipsByJarId {
+          nodes {
+            isAdmin
+            jarId
+            userId
+            user {
+              firstName
+              id
+              lastName
+              phone
+              userName
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+const CREATE_JAR_MEMBERSHIP = gql`
+  mutation CreateJarMembership($input: CreateJarMembershipInput!) {
+    createJarMembership(input: $input) {
+      jar {
+        savingsGoal
+        deadline
+      }
+      jarMembership {
+        isAdmin
+        userId
+        jarId
+        user {
+          firstName
+          userName
+        }
+      }
+    }
+  }
+`
+
+export {
+  CREATE_USER,
+  CREATE_JAR,
+  CREATE_JAR_MEMBERSHIP
+};
