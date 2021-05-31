@@ -1,16 +1,33 @@
 import React from "react";
 import colors from "../../../constants/colors";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 // components
 import ProgressBar from "./ProgressBar";
 import Hexagon from "../../../cpts/base/Hexagon";
+import moment from "moment";
 
 const baseHeight = 95;
 
 export default function ListItem(props) {
-  const { item } = props;
-  const { timeTypeText, progressText, persons } = item;
+
+  const { item, isJar = false, onPress } = props;
+
+  const {
+    timeTypeText = isJar ? item.isAdmin ? "Jar Bearer" : "Honi Bee" : "",
+    progressText = "",
+    persons = isJar ? item?.jar?.jarMembershipsByJarId?.nodes : false,
+    icon = isJar ? false : "bee",
+    notification = "",
+    name = "The Spring Break Jar",
+    jarText = "",
+    daysLeft = isJar ? moment(item?.jar?.deadline).diff(moment(), 'days') : false,
+    likes = "",
+    comments = "",
+    isProgress = isJar ? true : false,
+    progress = isJar ? 0.5 : 0
+  } = item;
+
   const avtarColors = {
     0: colors.primary,
     1: colors.progressBar.completed,
@@ -23,7 +40,11 @@ export default function ListItem(props) {
 
   return (
     <>
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        activeOpacity={0.8}
+        onPress={onPress}
+      >
         <View style={styles.imageContainer}>
           <Image
             source={require("../../../assets/images/hexa.png")}
@@ -33,48 +54,53 @@ export default function ListItem(props) {
             source={require("../../../assets/images/lightBlue.png")}
             style={styles.hexa}
           />
-          {persons ? (
-            <View style={styles.avtaarContainer}>
-              {persons.map((person, index) => {
-                const { name } = person;
-                return (
-                  <View
-                    style={[styles.hexagonContainer, getAvtarStyles(index)]}
-                    key={index}
-                  >
-                    <Hexagon
-                      pathProps={{
-                        fill: avtarColors[index],
-                      }}
-                    />
-                    <Text style={styles.avtarText}>{name}</Text>
-                  </View>
-                );
-              })}
-            </View>
-          ) : null}
-          {item.icon ? (
-            item.icon === "bee" ? (
-              <Image
-                source={require("../../../assets/images/beeBadge.png")}
-                style={styles.badge}
-              />
-            ) : (
-              <Image
-                source={require("../../../assets/images/bearerBadge.png")}
-                style={styles.badge}
-              />
-            )
-          ) : null}
+          {
+            persons ? (
+              <View style={styles.avtaarContainer}>
+                {
+                  persons.map((person, index) => {
+                    return (
+                      <View
+                        style={[styles.hexagonContainer, getAvtarStyles(index)]}
+                        key={index}
+                      >
+                        <Hexagon
+                          pathProps={{
+                            fill: avtarColors[index]
+                          }}
+                        />
+                        <Text style={styles.avtarText}>{person?.user?.firstName[0]}{person?.user?.lastName[0]}</Text>
+                      </View>
+                    )
+                  })
+                }
+              </View>
+            ) : null
+          }
+          {
+            icon ? (
+              icon === "bee" ? (
+                <Image
+                  source={require("../../../assets/images/beeBadge.png")}
+                  style={styles.badge}
+                />
+              ) : (
+                <Image
+                  source={require("../../../assets/images/bearerBadge.png")}
+                  style={styles.badge}
+                />
+              )
+            ) : null
+          }
         </View>
         <View style={[styles.contentContainer]}>
           <Text style={styles.title} numberOfLines={1}>
-            <Text style={styles.bold}>{item.name}</Text> {item.notification}{" "}
-            <Text style={styles.bold}>{item.jar}</Text>
+            <Text style={styles.bold}>{name}</Text> {notification}{" "}
+            <Text style={styles.bold}>{jarText}</Text>
           </Text>
-          <Text style={styles.title}>{timeTypeText ? timeTypeText : "2h"}</Text>
-          {item.isProgress ? (
-            <ProgressBar progress={item.progress} progressText={progressText} />
+          <Text style={styles.title}>{timeTypeText ? timeTypeText : '2h'}</Text>
+          {isProgress ? (
+            <ProgressBar progress={progress} progressText={progressText} />
           ) : (
             <Text
               style={[
@@ -98,39 +124,38 @@ export default function ListItem(props) {
               },
             ]}
           >
-            {item?.daysLeft ? (
-              <Text style={styles.title}>
-                Days left:{" "}
-                <Text style={styles.daysLeftValue}>{item?.daysLeft}</Text>
-              </Text>
-            ) : (
-              <>
-                <View style={styles.iconContainer}>
-                  <Image
-                    source={require("../../../assets/images/likeIcon.png")}
-                    style={styles.icon}
-                  />
-                  <Text style={styles.title}>{item.likes}</Text>
-                </View>
-                <View
-                  style={[
-                    styles.iconContainer,
-                    {
-                      marginLeft: 10,
-                    },
-                  ]}
-                >
-                  <Image
-                    source={require("../../../assets/images/commentIcon.png")}
-                    style={styles.icon}
-                  />
-                  <Text style={styles.title}>{item.comments}</Text>
-                </View>
-              </>
-            )}
+            {
+              daysLeft ? (
+                <Text style={styles.title}>Days left: <Text style={styles.daysLeftValue}>{daysLeft}</Text></Text>
+              ) : (
+                <>
+                  <View style={styles.iconContainer}>
+                    <Image
+                      source={require("../../../assets/images/likeIcon.png")}
+                      style={styles.icon}
+                    />
+                    <Text style={styles.title}>{likes}</Text>
+                  </View>
+                  <View
+                    style={[
+                      styles.iconContainer,
+                      {
+                        marginLeft: 10,
+                      },
+                    ]}
+                  >
+                    <Image
+                      source={require("../../../assets/images/commentIcon.png")}
+                      style={styles.icon}
+                    />
+                    <Text style={styles.title}>{comments}</Text>
+                  </View>
+                </>
+              )
+            }
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </>
   );
 

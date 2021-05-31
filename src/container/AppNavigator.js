@@ -9,6 +9,8 @@ import SplashScreen from "../screens/SplashScreen";
 import SignupOptions from "../screens/Auth/components/SignupOptions";
 import SignupEmail from "../screens/Auth/components/SignupEmail";
 import SigninEmail from "../screens/Auth/components/SigninEmail";
+import StartJar from "../screens/JarScreen/components/StartJar";
+import JarDetail from "../screens/JarScreen/components/JarDetail";
 import useAuth from "../utils/hooks/useAuth";
 
 import { ApolloProvider } from "@apollo/client";
@@ -27,22 +29,37 @@ const AppNavigator = () => {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName={user ? "Drawer" : "Auth"}
-          headerMode="none"
         >
-          <Stack.Screen name="Drawer" component={DrawerNavigator} />
-          <Stack.Screen name="Auth" component={Auth} />
-          <Stack.Screen name="SignupOptions" component={SignupOptions} />
+          <Stack.Screen
+            name="Drawer"
+            component={DrawerNavigator}
+            options={{ title: 'Jars', headerShown: false }}
+          />
+          <Stack.Screen name="Auth" component={Auth} options={{ headerShown: false }} />
+          <Stack.Screen name="SignupOptions" component={SignupOptions} options={{ headerShown: false }}/>
           <Stack.Screen
             name="SigninOptions"
             component={SignupOptions}
             initialParams={{ signin: true }}
+            options={{ headerShown: false }}
           />
-          <Stack.Screen name="SignupEmail" component={SignupEmail} />
-          <Stack.Screen name="SigninEmail" component={SigninEmail} />
+          <Stack.Screen name="SignupEmail" component={SignupEmail} options={{ headerShown: false }}/>
+          <Stack.Screen name="SigninEmail" component={SigninEmail} options={{ headerShown: false }}/>
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
             options={{ title: "Splash", headerShown: false }}
+          />
+          <Stack.Screen
+            name="StartJar"
+            component={StartJar}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            title="Jar Details"
+            name="JarDetail"
+            component={JarDetail}
+            options={{ title: '' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
