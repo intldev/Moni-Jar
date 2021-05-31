@@ -13,6 +13,7 @@ export default function DatePicker(props) {
         containerStyles,
 
         datePickerProps,
+        datePlaceholderValue,
 
         label = "Label",
         labelStyles,
@@ -34,10 +35,10 @@ export default function DatePicker(props) {
                     setModalOpen(true);
                 }}
             >
-                <Text style={[styles.placeholder, datePickerProps?.date ? styles.selected : null]}>
+                <Text style={[styles.placeholder, datePlaceholderValue ? styles.selected : null]}>
                     {
-                        datePickerProps?.date
-                            ? moment(datePickerProps?.date).format('MM/DD/YY')
+                        datePlaceholderValue
+                            ? moment(datePlaceholderValue).format('MM/DD/YY')
                             : placeholder
                     }
                 </Text>

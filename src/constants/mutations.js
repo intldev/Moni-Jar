@@ -45,6 +45,7 @@ const CREATE_JAR_MEMBERSHIP = gql`
       jar {
         savingsGoal
         deadline
+        name
       }
       jarMembership {
         isAdmin

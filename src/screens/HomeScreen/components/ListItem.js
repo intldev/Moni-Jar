@@ -19,7 +19,7 @@ export default function ListItem(props) {
     persons = isJar ? item?.jar?.jarMembershipsByJarId?.nodes : false,
     icon = isJar ? false : "bee",
     notification = "",
-    name = "The Spring Break Jar",
+    name = isJar ? item?.jar?.name : "",
     jarText = "",
     daysLeft = isJar ? moment(item?.jar?.deadline).diff(moment(), 'days') : false,
     likes = "",
@@ -95,7 +95,7 @@ export default function ListItem(props) {
         </View>
         <View style={[styles.contentContainer]}>
           <Text style={styles.title} numberOfLines={1}>
-            <Text style={styles.bold}>{name}</Text> {notification}{" "}
+            <Text style={[styles.bold, styles.capitalize]}>{name}</Text> {notification}{" "}
             <Text style={styles.bold}>{jarText}</Text>
           </Text>
           <Text style={styles.title}>{timeTypeText ? timeTypeText : '2h'}</Text>
@@ -283,4 +283,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     fontFamily: "Calibre-SemiBold",
   },
+  capitalize:{
+    textTransform: 'capitalize'
+  }
 });

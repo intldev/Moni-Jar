@@ -31,6 +31,7 @@ export const JAR_MEMBERSHIPS = gql`
         jar {
           savingsGoal
           deadline
+          name
           jarMembershipsByJarId {
             nodes {
               user {

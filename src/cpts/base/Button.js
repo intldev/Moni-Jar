@@ -28,8 +28,9 @@ export default function Button(props) {
           style={[styles.activityStyles, activityStyles]}
           color={activityColor}
         />
-      ) : null}
-      <Text style={[styles.text, textStyles]}>{title}</Text>
+      ) :
+        <Text style={[styles.text, textStyles]}>{title}</Text>
+      }
     </TouchableOpacity>
   );
 }

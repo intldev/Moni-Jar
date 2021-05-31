@@ -1,7 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { Circle, Text as SvgText, TextPath, TSpan, G, Svg }
-    from 'react-native-svg';
 import { useRoute } from '@react-navigation/core';
 
 // components
@@ -12,28 +10,28 @@ import colors from '../../../constants/colors';
 import Hexagon from '../../../cpts/base/Hexagon';
 import moment from 'moment';
 
-const persons = ['JULIA', 'ARMONDO', 'ARMONDO', 'ARMONDO', 'ARMONDO', 'ARMONDO'];
+const persons = ['JULIA', 'ARMONDO', 'TAYLOR', 'RACHEL', 'JULIA', 'SOMEONE'];
 
-const singleHeight = 55;
+const singleHeight = 60;
 const numberOfPersons = getPersonsLength();
 const boxHeight = numberOfPersons * 40;
 const borderWidth = 8;
-const circleHeight = 150;
+const circleHeight = 232;
 
 function getPersonsLength() {
-    if (persons.length > 3) {
+    if (persons.length > 6) {
         return persons.length
     }
-    else return 2
+    else if (persons.length > 2) {
+        return persons.length - 1
+    }
+    else return persons.length
 }
-
 export default function JarDetail() {
 
-    const title = "SPRING BREAK JAR";
     const route = useRoute();
 
     const data = route?.params?.data || {};
-
     return (
         <View style={styles.parentContainer}>
             <ScrollView
@@ -42,42 +40,11 @@ export default function JarDetail() {
                 }}
                 contentContainerStyle={styles.container}
             >
-                <View style={{
-                    backgroundColor: '#0aa',
-                    width: '100%',
-                    bottom: 40,
-                    left: 40
-                }}>
-                    <Svg position="absolute" height="300" width="300"
-                        viewBox="0 0 300 300">
-                        <G id="circle">
-                            <Circle
-                                r={100}
-                                x={150}
-                                y={176}
-                                fill="none"
-                                stroke="#fff"
-                                strokeWidth={0}
-                                transform={`rotate(-135)`}
-                            />
-                        </G>
-                        <SvgText 
-                            fill="#000" 
-                            fontSize="20"
-                            fontWeight="700"
-                            fontFamily="Calibre-SemiBold"
-                        >
-                            <TextPath href="#circle">
-                                <TSpan dx={0} dy={-18}>
-                                    {title}
-                                </TSpan>
-                            </TextPath>
-                        </SvgText>
-                    </Svg>
-                </View>
+                <Text style={styles.jarName}>{data?.jar?.name || ''}</Text>
                 <View>
                     <View style={{
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        top: -20
                     }}>
                         <View style={{
                             zIndex: 9,
@@ -114,8 +81,21 @@ export default function JarDetail() {
                                     persons.map((person, index) => {
                                         return (
                                             <View style={[styles.row, {
-                                                borderBottomWidth: (persons.length - 1 === index) ? 0 : borderWidth
+                                                borderBottomWidth: (persons.length - 1 === index) ? 0 : borderWidth,
+                                                backgroundColor: persons.length === 1 ? colors.secondary.navigator : 'transparent',
+                                                width: persons.length === 1 ? '98%' : '100%',
+                                                left: persons.length === 1 ? '1%' : '0%',
                                             }]} key={index}>
+                                                {
+                                                    (persons.length === 1) ? (
+                                                        <View style={styles.hiddenContainer} />
+                                                    ) : null
+                                                }
+                                                {
+                                                    ((persons.length === 2 || persons.length === 3) && persons.length - 1 === index) ? (
+                                                        <View style={styles.hiddenContainer2} />
+                                                    ) : null
+                                                }
                                                 <Text style={styles.personName}>{person}</Text>
                                             </View>
                                         )
@@ -192,7 +172,7 @@ const styles = StyleSheet.create({
         borderWidth: borderWidth,
         borderRadius: 0,
         backgroundColor: colors.secondary.navigator,
-        zIndex: 1,
+        zIndex: 3,
         borderTopWidth: 0,
         borderBottomWidth: 0
     },
@@ -206,8 +186,11 @@ const styles = StyleSheet.create({
     },
     semiDown: {
         marginTop: -circleHeight / 2,
-        zIndex: 0,
-        borderTopWidth: 0
+        zIndex: 1,
+    },
+    semiUp: {
+        zIndex: 2,
+        borderBottomColor: colors.secondary.navigator,
     },
     row: {
         height: singleHeight,
@@ -220,7 +203,8 @@ const styles = StyleSheet.create({
         height: 8,
         width: 70,
         borderRadius: 20,
-        top: ((circleHeight / 2) - 3)
+        top: ((circleHeight / 2) - 3),
+        marginBottom: 20
     },
     bottomContainer: {
         marginTop: 110,
@@ -232,8 +216,10 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     personName: {
-        fontSize: 12,
-        fontFamily: 'Calibre-SemiBold'
+        fontSize: 20,
+        fontFamily: 'Calibre-SemiBold',
+        letterSpacing: 6,
+        zIndex: 2
     },
     amountContainer: {
         flexDirection: 'row'
@@ -279,5 +265,35 @@ const styles = StyleSheet.create({
     },
     parentContainer: {
         flexGrow: 1
+    },
+    hiddenContainer: {
+        position: 'absolute',
+        height: 80,
+        width: '102%',
+        backgroundColor: colors.secondary.navigator,
+        bottom: -33,
+        borderRadius: 34,
+        zIndex: 1,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10
+    },
+    jarName: {
+        fontFamily: 'Calibre-SemiBold',
+        fontSize: 20,
+        letterSpacing: 2,
+        textTransform: 'uppercase'
+    },
+    hiddenContainer2: {
+        position: 'absolute',
+        height: singleHeight - 20,
+        width: '98%',
+        bottom: 10,
+        backgroundColor: colors.secondary.navigator,
+        borderRadius: 30
     }
 })
+
+
+//8   16  24
+
+//65  45  25
