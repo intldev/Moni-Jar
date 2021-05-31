@@ -11,23 +11,18 @@ import SignupEmail from "../screens/Auth/components/SignupEmail";
 import SigninEmail from "../screens/Auth/components/SigninEmail";
 import useAuth from "../utils/hooks/useAuth";
 
-import { ApolloClient, ApolloProvider } from "@apollo/client";
-import { GRAPHQL_ENDPOINT } from "@env";
-import { typeDefs } from "../constants/typedefs";
-import { cache } from "../cache";
-
-// Initialize Apollo Client
-const client = new ApolloClient({
-  uri: GRAPHQL_ENDPOINT,
-  cache: cache,
-  typeDefs,
-});
+import { ApolloProvider } from "@apollo/client";
+import useApolloClient from "../utils/hooks/useApolloClient";
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   const [isInitializing, user] = useAuth();
-  const navigation = (
+  const client = useApolloClient(user);
+
+  if (isInitializing) return null;
+
+  return (
     <ApolloProvider client={client}>
       <NavigationContainer>
         <Stack.Navigator
@@ -53,9 +48,6 @@ const AppNavigator = () => {
       </NavigationContainer>
     </ApolloProvider>
   );
-  if (isInitializing) return null;
-
-  return navigation;
 };
 
 export default AppNavigator;

@@ -26,6 +26,8 @@ import { USER_DETAILS } from "../../constants/queries";
 import { useQuery } from "@apollo/client";
 
 export default function CustomDrawerContent(props) {
+  const { client, data } = useQuery(USER_DETAILS);
+
   const listItems = [
     {
       title: "search",
@@ -55,7 +57,7 @@ export default function CustomDrawerContent(props) {
       title: "Settings",
       image: Settings,
       onPress: () => {
-        logout(props.navigation);
+        logout(props.navigation, client.clearStore);
       },
     },
     {
@@ -64,7 +66,6 @@ export default function CustomDrawerContent(props) {
     },
   ];
 
-  const { data } = useQuery(USER_DETAILS);
   const { firstName = "", jarMembershipsByUserId } = data;
 
   const totalJars = jarMembershipsByUserId?.totalCount;
