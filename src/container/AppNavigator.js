@@ -27,24 +27,38 @@ const AppNavigator = () => {
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName={user ? "Drawer" : "Auth"}
-        >
+        <Stack.Navigator initialRouteName={user ? "Drawer" : "Auth"}>
           <Stack.Screen
             name="Drawer"
             component={DrawerNavigator}
-            options={{ title: 'Jars', headerShown: false }}
+            options={{ title: "Your Jars", headerShown: false }}
           />
-          <Stack.Screen name="Auth" component={Auth} options={{ headerShown: false }} />
-          <Stack.Screen name="SignupOptions" component={SignupOptions} options={{ headerShown: false }}/>
+          <Stack.Screen
+            name="Auth"
+            component={Auth}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SignupOptions"
+            component={SignupOptions}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="SigninOptions"
             component={SignupOptions}
             initialParams={{ signin: true }}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="SignupEmail" component={SignupEmail} options={{ headerShown: false }}/>
-          <Stack.Screen name="SigninEmail" component={SigninEmail} options={{ headerShown: false }}/>
+          <Stack.Screen
+            name="SignupEmail"
+            component={SignupEmail}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SigninEmail"
+            component={SigninEmail}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
@@ -53,13 +67,13 @@ const AppNavigator = () => {
           <Stack.Screen
             name="StartJar"
             component={StartJar}
-            options={{ headerShown: false }}
+            options={{ title: "Start a Jar" }}
           />
           <Stack.Screen
             title="Jar Details"
             name="JarDetail"
             component={JarDetail}
-            options={{ title: '' }}
+            options={{ title: "" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
