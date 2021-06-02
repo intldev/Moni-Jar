@@ -115,7 +115,7 @@ export default function StartJar() {
         />
         <DatePicker
           label="When is your deadline?"
-          placeholder="03/05/21"
+          placeholder={moment().format('MM/DD/YYYY')}
           datePlaceholderValue={data.date ? data?.date : ""}
           datePickerProps={{
             minimumDate: new Date(),
