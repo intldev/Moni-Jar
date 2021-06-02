@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import auth from "@react-native-firebase/auth";
 
 // constants
 import colors from "../../../constants/colors";
+import { CREATE_USER } from "../../../constants/mutations";
 import { errorMessages } from "../../../constants/variable";
 import { useMutation } from "@apollo/client";
 
@@ -18,16 +19,14 @@ import { useMutation } from "@apollo/client";
 import AppCheckbox from "../../../cpts/base/Checkbox";
 import TextField from "../../../cpts/base/TextField";
 import Button from "../../../cpts/base/Button";
-import { CREATE_USER } from "../../../constants/mutations";
 
 // apollo caching variables
 import {
   firstNameVar as setFirstName,
   lastNameVar as setLastName,
-  phoneVar as setPhone,
 } from "../../../cache";
 
-const initailErrors = {
+const initialErrors = {
   firstName: false,
   lastName: false,
   email: false,
@@ -54,16 +53,12 @@ export default function SignupEmail(props) {
     ...initialValues,
   });
   const [errors, setErrors] = useState({
-    ...initailErrors,
+    ...initialErrors,
   });
 
   const [isLoading, setIsLoading] = useState(false);
   const [submitOnce, setSubmitOnce] = useState(false);
-  const [apiError, setApiError] = useState(false);
-
-  const [errorMessage, setErrorMessage] = useState(
-    errorMessages.validationField,
-  );
+  const [errorMessage, setErrorMessage] = useState(null);
   const [createUser, { data, error }] = useMutation(CREATE_USER);
 
   const { navigation } = props;
@@ -78,24 +73,56 @@ export default function SignupEmail(props) {
     checkbox2,
   } = details;
 
+  const validate = useCallback(() => {
+    const localErrors = { ...initialErrors };
+
+    let validated = true;
+    let localErrorMessage = null;
+
+    // Check for blank fields
+    Object.keys(details).forEach(field => {
+      if (!details[field]) {
+        localErrors[field] = true;
+        validated = false;
+        localErrorMessage = errorMessages.validationField;
+      }
+    });
+
+    // Check password match
+    if (password !== confirmPassword) {
+      validated = false;
+      localErrorMessage = errorMessages.passwordMatch;
+    }
+
+    setErrorMessage(localErrorMessage);
+
+    setErrors({
+      ...localErrors,
+    });
+
+    return {
+      validated,
+      localErrors,
+    };
+  }, [confirmPassword, details, password]);
+
   useEffect(() => {
     if (submitOnce) {
       validate();
     }
-  }, [details, submitOnce]);
+  }, [details, validate, submitOnce]);
 
   useEffect(() => {
     if (data) {
       const { user } = data?.createUser;
       setFirstName(user?.firstName);
       setLastName(user?.lastName);
-      setPhone(user?.phone);
       navigation.navigate("Drawer");
     }
     if (data || error) {
       setIsLoading(false);
     }
-  }, [data, error]);
+  }, [data, navigation, error]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -190,12 +217,12 @@ export default function SignupEmail(props) {
           <TouchableOpacity style={styles.linkButtonContainer}>
             <Text style={styles.helpfulInformation}>Helpful Information</Text>
           </TouchableOpacity>
-          {isError() || apiError ? (
+          {errorMessage && (
             <Text style={styles.finishText}>
               {errorMessage}
               <Text style={styles.asterisk}>*</Text>
             </Text>
-          ) : null}
+          )}
           <Button
             title="SIGN UP"
             containerStyles={styles.button}
@@ -220,72 +247,38 @@ export default function SignupEmail(props) {
       [field]: text,
     });
   }
-  function isError() {
-    let error = false;
-    Object.keys(errors).forEach(field => {
-      if (errors[field]) {
-        error = true;
-        return;
-      }
-    });
-    if (password !== confirmPassword) {
-      error = true;
-    }
-    return error;
-  }
-  function submit() {
+
+  async function submit() {
     setSubmitOnce(true);
     const { validated } = validate();
     if (validated) {
       setIsLoading(true);
-      auth()
-        .createUserWithEmailAndPassword(details.email, details.password)
-        .then(res => {
-          const uid = res.user.uid;
-          createUser({
-            variables: {
-              input: {
-                user: {
-                  firstName,
-                  id: uid,
-                  lastName,
-                  phone,
-                },
+
+      try {
+        const {
+          user: { uid },
+        } = await auth().createUserWithEmailAndPassword(
+          details.email,
+          details.password,
+        );
+
+        createUser({
+          variables: {
+            input: {
+              user: {
+                firstName,
+                id: uid,
+                lastName,
+                phone,
               },
             },
-          });
-        })
-        .catch(error => {
-          setApiError(true);
-          setErrorMessage(error.nativeErrorMessage);
-          setIsLoading(false);
+          },
         });
-    }
-  }
-  function validate() {
-    const localErrors = {
-      ...initailErrors,
-    };
-    let validated = true;
-    Object.keys(details).forEach(field => {
-      if (!details[field]) {
-        localErrors[field] = true;
-        validated = false;
+      } catch (error) {
+        setErrorMessage(error.nativeErrorMessage);
+        setIsLoading(false);
       }
-    });
-    if (!validated) {
-      setErrorMessage(errorMessages.validationField);
-    } else if (validated && password !== confirmPassword) {
-      validated = false;
-      setErrorMessage(errorMessages.passwordMatch);
     }
-    setErrors({
-      ...localErrors,
-    });
-    return {
-      validated,
-      localErrors,
-    };
   }
 }
 

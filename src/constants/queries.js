@@ -4,7 +4,6 @@ export const USER_DETAILS = gql`
   query user {
     firstName @client
     lastName @client
-    phone @client
     jarMembershipsByUserId @client
   }
 `;
@@ -14,7 +13,6 @@ export const USER = gql`
     user(id: $id) {
       firstName
       lastName
-      phone
       jarMembershipsByUserId {
         totalCount
       }
