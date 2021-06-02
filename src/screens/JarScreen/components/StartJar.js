@@ -18,7 +18,6 @@ import {
   CREATE_JAR_MEMBERSHIP,
 } from "../../../constants/mutations";
 import { useMutation } from "@apollo/client";
-import moment from "moment";
 
 const initialData = {
   name: "",
@@ -146,8 +145,12 @@ export default function StartJar() {
         validated = false;
         errors[field] = `${field} is Required`;
       }
-      if (field === "savingsGoal" && !+data[field].replace("$", "")) {
-        errors[field] = `${field} is Required`;
+      if (field === "savingsGoal") {
+        const fieldValue = data[field]?.replace("$", "");
+        if (isNaN(fieldValue.replace("$", "")) || !fieldValue) {
+          errors[field] = `${field} is Required`;
+          validated = false;
+        }
       }
     });
     if (!isLocal) setErrors(errors);
