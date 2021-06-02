@@ -9,7 +9,7 @@ import SlideBackImage from "../../../assets/images/slideBack.png";
 import colors from "../../../constants/colors";
 
 export default function Background(props) {
-  const { backgroundColor = colors.primary } = props;
+  const { backgroundColor = colors.primary, showImage = true } = props;
   return (
     <View
       style={[
@@ -23,7 +23,11 @@ export default function Background(props) {
         colors={[colors.secondary.darkGradient, "transparent"]}
         style={styles.linearGradient}
       />
-      <Image source={SlideBackImage} style={styles.sideImage1} />
+      {
+        showImage?(
+          <Image source={SlideBackImage} style={styles.sideImage1} />
+        ):null
+      }
       <LinearGradient
         colors={["transparent", colors.secondary.darkGradient]}
         style={[styles.linearGradient, { bottom: 0 }]}

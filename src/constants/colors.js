@@ -13,6 +13,7 @@ export default {
     checkboxBlue: "rgba(46,196,255,1)",
     navigator: "rgb(55,200,255)",
     navigatorDark: "#5ab8ee",
+    placeholder: 'rgba(255,248,230,0.25)'
   },
   progressBar: {
     completed: "#76E5A3",
