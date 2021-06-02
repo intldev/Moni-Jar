@@ -1,13 +1,13 @@
 import auth from "@react-native-firebase/auth";
+import showAlert from "./showAlert";
 
-export async function logout(navigation, clearStore) {
-  return auth()
+export async function logout(navigation) {
+  auth()
     .signOut()
     .then(() => {
-      clearStore();
       navigation.navigate("Auth");
     })
     .catch(error => {
-      console.log(error);
+      showAlert('tryAgain');
     });
 }

@@ -4,6 +4,7 @@ import { DrawerContentScrollView } from "@react-navigation/drawer";
 
 // constants
 import colors from "../../constants/colors";
+import showAlert from "../../constants/utils/showAlert";
 
 // components
 import UserDetails from "./components/UserDetails";
@@ -57,7 +58,13 @@ export default function CustomDrawerContent(props) {
       title: "Settings",
       image: Settings,
       onPress: () => {
-        logout(props.navigation, client.clearStore);
+        client.clearStore()
+          .then(() => {
+            logout(props.navigation);
+          })
+          .catch((error) => {
+            showAlert('tryAgain');
+          })
       },
     },
     {
