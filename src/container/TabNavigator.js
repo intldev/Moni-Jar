@@ -17,12 +17,7 @@ import JarScreen from "../screens/JarScreen";
 // graphql
 import { useQuery } from "@apollo/client";
 import { USER } from "../constants/queries";
-import {
-  firstNameVar,
-  jarMembershipsByUserIdVar,
-  lastNameVar,
-  phoneVar,
-} from "../cache";
+import { firstNameVar, jarMembershipsByUserIdVar, lastNameVar } from "../cache";
 
 export default function TabNavigator(props) {
   const { data } = useQuery(USER, {
@@ -50,10 +45,9 @@ export default function TabNavigator(props) {
 
   useEffect(() => {
     if (data?.user) {
-      const { firstName, lastName, phone, jarMembershipsByUserId } = data.user;
+      const { firstName, lastName, jarMembershipsByUserId } = data.user;
       firstNameVar(firstName);
       lastNameVar(lastName);
-      phoneVar(phone);
       jarMembershipsByUserIdVar({
         totalCount: jarMembershipsByUserId?.totalCount,
       });

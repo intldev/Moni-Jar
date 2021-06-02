@@ -1,4 +1,4 @@
 export const errorMessages = {
   validationField: "Finish filling required fields",
-  passwordMatch: "Password do not match",
+  passwordMatch: "Passwords do not match",
 };
