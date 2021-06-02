@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import {
   Easing,
   View,
@@ -29,23 +29,23 @@ export default function AppCheckbox(props) {
     onValueChange,
   } = props;
 
-  function fadeIn() {
+  const fadeIn = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 350,
       easing: Easing.out(Easing.exp),
       useNativeDriver: true,
     }).start();
-  }
+  }, [fadeAnim]);
 
-  function fadeOut() {
+  const fadeOut = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: 350,
       easing: Easing.out(Easing.exp),
       useNativeDriver: true,
     }).start();
-  }
+  }, [fadeAnim]);
 
   useEffect(() => {
     if (value) {
@@ -53,7 +53,7 @@ export default function AppCheckbox(props) {
     } else {
       fadeOut();
     }
-  }, [value]);
+  }, [value, fadeIn, fadeOut]);
 
   const color = fadeAnim.interpolate({
     inputRange: [0, 1],
@@ -102,45 +102,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     flex: 1,
     fontFamily: "Calibre",
-  },
-  hexagon: {
-    width: size,
-    height: size / 2 + 0.1 * size,
-  },
-  hexagonInner: {
-    width: size,
-    height: size / 2 + 0.1 * size,
-    backgroundColor: "red",
-    borderLeftWidth: 2,
-    borderRightWidth: 2,
-    borderColor: "#a0a",
-  },
-  hexagonAfter: {
-    position: "absolute",
-    bottom: -size / 4,
-    left: 0,
-    width: 0,
-    height: 0,
-    borderStyle: "solid",
-    borderLeftWidth: size / 2,
-    borderLeftColor: "transparent",
-    borderRightWidth: size / 2,
-    borderRightColor: "transparent",
-    borderTopWidth: size / 4,
-    borderTopColor: "red",
-  },
-  hexagonBefore: {
-    position: "absolute",
-    top: -size / 4,
-    left: 0,
-    width: 0,
-    height: 0,
-    borderStyle: "solid",
-    borderLeftWidth: size / 2,
-    borderLeftColor: "transparent",
-    borderRightWidth: size / 2,
-    borderRightColor: "transparent",
-    borderBottomWidth: size / 4,
-    borderBottomColor: "red",
   },
 });

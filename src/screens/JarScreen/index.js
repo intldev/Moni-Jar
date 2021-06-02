@@ -1,29 +1,37 @@
-import React, { useEffect } from 'react';
-import { View, Image, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
-import colors from '../../constants/colors';
+import React, { useEffect } from "react";
+import {
+  View,
+  Image,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/core";
+import colors from "../../constants/colors";
 import auth from "@react-native-firebase/auth";
 
 // components
-import PlusIcon from '../../assets/images/plusIcon.png';
-import ListItem from '../HomeScreen/components/ListItem';
-import LoadingIndicator from '../../cpts/base/LoadingIndicator';
+import PlusIcon from "../../assets/images/plusIcon.png";
+import ListItem from "../HomeScreen/components/ListItem";
+import LoadingIndicator from "../../cpts/base/LoadingIndicator";
 
 // images
-import jarGraphic from '../../assets/images/jarGraphic.png';
+import jarGraphic from "../../assets/images/jarGraphic.png";
 
 // graphql
-import { useQuery } from '@apollo/client';
-import { JAR_MEMBERSHIPS } from '../../constants/queries';
+import { useQuery } from "@apollo/client";
+import { JAR_MEMBERSHIPS } from "../../constants/queries";
 
 export default function JarScreen() {
-  const data = [];
-
   const navigation = useNavigation();
-  const { data: jarMemberships, loading, refetch } = useQuery(JAR_MEMBERSHIPS, {
+  const {
+    data: jarMemberships,
+    loading,
+    refetch,
+  } = useQuery(JAR_MEMBERSHIPS, {
     variables: {
-      input: auth()?.currentUser?.uid
-    }
+      input: auth()?.currentUser?.uid,
+    },
   });
   const memberships = jarMemberships?.jarMemberships?.nodes;
 
@@ -33,85 +41,83 @@ export default function JarScreen() {
         item={item}
         isJar={true}
         onPress={() => {
-          navigation.navigate('JarDetail', {
-            data: item
-          })
+          navigation.navigate("JarDetail", {
+            data: item,
+          });
         }}
       />
-    )
+    );
   };
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      refetch()
+    const unsubscribe = navigation.addListener("focus", () => {
+      refetch();
     });
 
     return unsubscribe;
-  }, [navigation]);
+  }, [navigation, refetch]);
 
   return (
     <View style={styles.container}>
       <LoadingIndicator
         isLoading={loading}
         activityProps={{
-          size: 'small',
-          color: colors.dark
+          size: "small",
+          color: colors.dark,
         }}
       />
-      {
-        memberships?.length === 0 ? (
-          <View style={styles.emptyContainer}>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('StartJar')
+      {memberships?.length === 0 ? (
+        <View style={styles.emptyContainer}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("StartJar");
+            }}
+            activeOpacity={0.8}
+            style={styles.startJarGraphic}
+          >
+            <Image
+              source={jarGraphic}
+              style={[
+                styles.startJarGraphic,
+                {
+                  height: "100%",
+                },
+              ]}
+            />
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <>
+          <View style={styles.listContainer}>
+            <FlatList
+              data={memberships}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={renderItem}
+              contentContainerStyle={{
+                paddingVertical: 20,
               }}
-              activeOpacity={0.8}
-              style={styles.startJarGraphic}
+            />
+          </View>
+          <View style={styles.footerContainer}>
+            <TouchableOpacity
+              style={styles.plusIconContainer}
+              onPress={() => {
+                navigation.navigate("StartJar");
+              }}
             >
-              <Image
-                source={jarGraphic}
-                style={[styles.startJarGraphic, {
-                  height: '100%'
-                }]}
-              />
+              <Image source={PlusIcon} style={styles.plusIcon} />
             </TouchableOpacity>
           </View>
-        ) : (
-          <>
-            <View style={styles.listContainer}>
-              <FlatList
-                data={memberships}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={renderItem}
-                contentContainerStyle={{
-                  paddingVertical: 20,
-                }}
-              />
-            </View>
-            <View style={styles.footerContainer}>
-              <TouchableOpacity
-                style={styles.plusIconContainer}
-                onPress={() => {
-                  navigation.navigate('StartJar')
-                }}
-              >
-                <Image
-                  source={PlusIcon}
-                  style={styles.plusIcon}
-                />
-              </TouchableOpacity>
-            </View>
-          </>
-        )
-      }
+        </>
+      )}
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.secondary.navigator
+    backgroundColor: colors.secondary.navigator,
   },
   listContainer: {
     flex: 6,
@@ -122,29 +128,23 @@ const styles = StyleSheet.create({
   plusIcon: {
     height: 40,
     width: 40,
-    resizeMode: 'contain'
+    resizeMode: "contain",
   },
   plusIconContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 24
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 24,
   },
   emptyContainer: {
     flex: 1,
     paddingHorizontal: 24,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     paddingBottom: 24,
   },
-  startJarImage: {
-    width: '50%',
-    height: 70,
-    resizeMode: 'contain',
-    alignSelf: 'center',
-  },
   startJarGraphic: {
-    resizeMode: 'contain',
-    height: '60%',
-    alignSelf: 'center'
-  }
-})
+    resizeMode: "contain",
+    height: "60%",
+    alignSelf: "center",
+  },
+});

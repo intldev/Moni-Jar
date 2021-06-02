@@ -71,13 +71,6 @@ const styles = StyleSheet.create({
     color: colors.light,
     fontFamily: "Calibre-SemiBold",
   },
-  signupButton: {
-    backgroundColor: colors.dark,
-    marginTop: 18,
-  },
-  signupButtonText: {
-    color: colors.primary,
-  },
   button: {
     marginTop: 14,
     backgroundColor: colors.primary,

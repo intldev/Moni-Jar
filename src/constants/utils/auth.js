@@ -7,7 +7,7 @@ export async function logout(navigation) {
     .then(() => {
       navigation.navigate("Auth");
     })
-    .catch(error => {
-      showAlert('tryAgain');
+    .catch(() => {
+      showAlert("tryAgain");
     });
 }

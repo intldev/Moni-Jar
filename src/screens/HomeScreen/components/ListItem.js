@@ -10,22 +10,21 @@ import moment from "moment";
 const baseHeight = 95;
 
 export default function ListItem(props) {
-
   const { item, isJar = false, onPress } = props;
 
   const {
-    timeTypeText = isJar ? item.isAdmin ? "Jar Bearer" : "Honi Bee" : "",
+    timeTypeText = isJar ? (item.isAdmin ? "Jar Bearer" : "Honi Bee") : "",
     progressText = "",
     persons = isJar ? item?.jar?.jarMembershipsByJarId?.nodes : false,
     icon = isJar ? false : "bee",
     notification = "",
     name = isJar ? item?.jar?.name : "",
     jarText = "",
-    daysLeft = isJar ? moment(item?.jar?.deadline).diff(moment(), 'days') : false,
-    likes = "",
-    comments = "",
+    daysLeft = isJar
+      ? moment(item?.jar?.deadline).diff(moment(), "days")
+      : false,
     isProgress = isJar ? true : false,
-    progress = isJar ? 0.5 : 0
+    progress = isJar ? 0.5 : 0,
   } = item;
 
   const avtarColors = {
@@ -54,67 +53,50 @@ export default function ListItem(props) {
             source={require("../../../assets/images/lightBlue.png")}
             style={styles.hexa}
           />
-          {
-            persons ? (
-              <View style={styles.avtaarContainer}>
-                {
-                  persons.map((person, index) => {
-                    return (
-                      <View
-                        style={[styles.hexagonContainer, getAvtarStyles(index)]}
-                        key={index}
-                      >
-                        <Hexagon
-                          pathProps={{
-                            fill: avtarColors[index]
-                          }}
-                        />
-                        <Text style={styles.avtarText}>{person?.user?.firstName[0]}{person?.user?.lastName[0]}</Text>
-                      </View>
-                    )
-                  })
-                }
-              </View>
-            ) : null
-          }
-          {
-            icon ? (
-              icon === "bee" ? (
-                <Image
-                  source={require("../../../assets/images/beeBadge.png")}
-                  style={styles.badge}
-                />
-              ) : (
-                <Image
-                  source={require("../../../assets/images/bearerBadge.png")}
-                  style={styles.badge}
-                />
-              )
-            ) : null
-          }
+          {persons ? (
+            <View style={styles.avtaarContainer}>
+              {persons.map((person, index) => {
+                return (
+                  <View
+                    style={[styles.hexagonContainer, getAvtarStyles(index)]}
+                    key={index}
+                  >
+                    <Hexagon
+                      pathProps={{
+                        fill: avtarColors[index],
+                      }}
+                    />
+                    <Text style={styles.avtarText}>
+                      {person?.user?.firstName[0]}
+                      {person?.user?.lastName[0]}
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
+          ) : null}
+          {icon ? (
+            icon === "bee" ? (
+              <Image
+                source={require("../../../assets/images/beeBadge.png")}
+                style={styles.badge}
+              />
+            ) : (
+              <Image
+                source={require("../../../assets/images/bearerBadge.png")}
+                style={styles.badge}
+              />
+            )
+          ) : null}
         </View>
         <View style={[styles.contentContainer]}>
           <Text style={styles.title} numberOfLines={1}>
-            <Text style={[styles.bold, styles.capitalize]}>{name}</Text> {notification}{" "}
-            <Text style={styles.bold}>{jarText}</Text>
+            <Text style={[styles.bold, styles.capitalize]}>{name}</Text>{" "}
+            {notification} <Text style={styles.bold}>{jarText}</Text>
           </Text>
-          <Text style={styles.title}>{timeTypeText ? timeTypeText : '2h'}</Text>
-          {isProgress ? (
+          <Text style={styles.title}>{timeTypeText ? timeTypeText : "2h"}</Text>
+          {isProgress && (
             <ProgressBar progress={progress} progressText={progressText} />
-          ) : (
-            <Text
-              style={[
-                styles.title,
-                {
-                  color: colors.blue,
-                  marginTop: 5,
-                },
-              ]}
-              numberOfLines={1}
-            >
-              <Text style={styles.bold}>"ALMOST THERE.</Text> I can't wait to
-              get to Cancun"
-            </Text>
           )}
           <View
             style={[
@@ -124,35 +106,11 @@ export default function ListItem(props) {
               },
             ]}
           >
-            {
-              daysLeft ? (
-                <Text style={styles.title}>Days left: <Text style={styles.daysLeftValue}>{daysLeft}</Text></Text>
-              ) : (
-                <>
-                  <View style={styles.iconContainer}>
-                    <Image
-                      source={require("../../../assets/images/likeIcon.png")}
-                      style={styles.icon}
-                    />
-                    <Text style={styles.title}>{likes}</Text>
-                  </View>
-                  <View
-                    style={[
-                      styles.iconContainer,
-                      {
-                        marginLeft: 10,
-                      },
-                    ]}
-                  >
-                    <Image
-                      source={require("../../../assets/images/commentIcon.png")}
-                      style={styles.icon}
-                    />
-                    <Text style={styles.title}>{comments}</Text>
-                  </View>
-                </>
-              )
-            }
+            {daysLeft && (
+              <Text style={styles.title}>
+                Days left: <Text style={styles.daysLeftValue}>{daysLeft}</Text>
+              </Text>
+            )}
           </View>
         </View>
       </TouchableOpacity>
@@ -246,20 +204,9 @@ const styles = StyleSheet.create({
   bold: {
     fontFamily: "Calibre-SemiBold",
   },
-  icon: {
-    height: 14,
-    width: 14,
-    resizeMode: "contain",
-    marginRight: 5,
-  },
   iconContainer: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  daysLeftTitle: {
-    color: colors.light,
-    fontFamily: "Calibre",
-    fontSize: 9,
   },
   daysLeftValue: {
     color: colors.progressBar.completed,
@@ -283,7 +230,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     fontFamily: "Calibre-SemiBold",
   },
-  capitalize:{
-    textTransform: 'capitalize'
-  }
+  capitalize: {
+    textTransform: "capitalize",
+  },
 });
