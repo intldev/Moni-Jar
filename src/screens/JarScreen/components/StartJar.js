@@ -147,7 +147,7 @@ export default function StartJar() {
       }
       if (field === "savingsGoal") {
         const fieldValue = data[field]?.replace("$", "");
-        if (isNaN(fieldValue.replace("$", "")) || !fieldValue) {
+        if (!fieldValue || isNaN(fieldValue)) {
           errors[field] = `${field} is Required`;
           validated = false;
         }
