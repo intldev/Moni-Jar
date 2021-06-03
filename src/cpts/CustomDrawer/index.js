@@ -58,13 +58,14 @@ export default function CustomDrawerContent(props) {
       title: "Settings",
       image: Settings,
       onPress: () => {
-        client.clearStore()
+        client
+          .clearStore()
           .then(() => {
             logout(props.navigation);
           })
-          .catch((error) => {
-            showAlert('tryAgain');
-          })
+          .catch(() => {
+            showAlert("tryAgain");
+          });
       },
     },
     {

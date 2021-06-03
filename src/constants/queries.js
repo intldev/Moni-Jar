@@ -20,10 +20,9 @@ export const USER = gql`
   }
 `;
 
-
 export const JAR_MEMBERSHIPS = gql`
   query JarMemberships($input: String!) {
-    jarMemberships(condition: {userId: $input}) {
+    jarMemberships(condition: { userId: $input }) {
       nodes {
         isAdmin
         jar {
@@ -47,4 +46,4 @@ export const JAR_MEMBERSHIPS = gql`
       }
     }
   }
-`
+`;

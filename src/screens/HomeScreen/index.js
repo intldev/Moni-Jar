@@ -8,15 +8,13 @@ import ListItem from "./components/ListItem";
 
 const data = [
   {
-    name: "Puffin",
-    notification: "commented on the",
-    jar: "Spring Break Jar",
-    icon: "bear",
-    description: '"ALMOST THERE. I can\'t wait to get to Canun"',
-    isProgress: false,
-    progress: 0,
-    likes: 10,
-    comments: 4,
+    name: "Denis Renoylds",
+    notification: "added to the",
+    jar: "Mom's 50th Bday Jar",
+    icon: "bee",
+    description: "",
+    isProgress: true,
+    progress: 0.9,
   },
   {
     name: "Denis Renoylds",
@@ -26,30 +24,6 @@ const data = [
     description: "",
     isProgress: true,
     progress: 0.9,
-    likes: 10,
-    comments: 4,
-  },
-  {
-    name: "Denis Renoylds",
-    notification: "added to the",
-    jar: "Mom's 50th Bday Jar",
-    icon: "bee",
-    description: "",
-    isProgress: true,
-    progress: 0.9,
-    likes: 10,
-    comments: 4,
-  },
-  {
-    name: "Puffin",
-    notification: "commented on the",
-    jar: "Spring Break Jar",
-    icon: "bear",
-    description: '"ALMOST THERE. I can\'t wait to get to Canun"',
-    isProgress: false,
-    progress: 0,
-    likes: 10,
-    comments: 4,
   },
   {
     name: "Denis Renoylds",
@@ -59,8 +33,6 @@ const data = [
     description: "",
     isProgress: true,
     progress: 0.3,
-    likes: 10,
-    comments: 4,
   },
   {
     name: "Denis Renoylds",
@@ -70,12 +42,10 @@ const data = [
     description: "",
     isProgress: true,
     progress: 0.9,
-    likes: 10,
-    comments: 4,
   },
 ];
 
-export default function HomeScreen(props) {
+export default function HomeScreen() {
   const renderItem = ({ item }) => <ListItem item={item} />;
   return (
     <View style={styles.container}>

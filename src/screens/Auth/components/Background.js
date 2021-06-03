@@ -23,11 +23,9 @@ export default function Background(props) {
         colors={[colors.secondary.darkGradient, "transparent"]}
         style={styles.linearGradient}
       />
-      {
-        showImage?(
-          <Image source={SlideBackImage} style={styles.sideImage1} />
-        ):null
-      }
+      {showImage ? (
+        <Image source={SlideBackImage} style={styles.sideImage1} />
+      ) : null}
       <LinearGradient
         colors={["transparent", colors.secondary.darkGradient]}
         style={[styles.linearGradient, { bottom: 0 }]}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import auth from "@react-native-firebase/auth";
@@ -42,11 +42,34 @@ export default function SignupEmail(props) {
 
   const { email, password } = details;
 
+  const validate = useCallback(() => {
+    const localErrors = {
+      ...initailErrors,
+    };
+    let validated = true;
+    Object.keys(details).forEach(field => {
+      if (!details[field]) {
+        localErrors[field] = true;
+        validated = false;
+      }
+    });
+    if (!validated) {
+      setErrorMessage(errorMessages.validationField);
+    }
+    setErrors({
+      ...localErrors,
+    });
+    return {
+      validated,
+      localErrors,
+    };
+  }, [details]);
+
   useEffect(() => {
     if (submitOnce) {
       validate();
     }
-  }, [details, submitOnce]);
+  }, [details, validate, submitOnce]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -120,7 +143,7 @@ export default function SignupEmail(props) {
       setIsLoading(true);
       auth()
         .signInWithEmailAndPassword(details.email, details.password)
-        .then(res => {
+        .then(() => {
           navigation.navigate("Drawer");
         })
         .catch(error => {
@@ -132,28 +155,6 @@ export default function SignupEmail(props) {
         });
     }
   }
-  function validate() {
-    const localErrors = {
-      ...initailErrors,
-    };
-    let validated = true;
-    Object.keys(details).forEach(field => {
-      if (!details[field]) {
-        localErrors[field] = true;
-        validated = false;
-      }
-    });
-    if (!validated) {
-      setErrorMessage(errorMessages.validationField);
-    }
-    setErrors({
-      ...localErrors,
-    });
-    return {
-      validated,
-      localErrors,
-    };
-  }
 }
 
 const styles = StyleSheet.create({
@@ -161,10 +162,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: "center",
     paddingHorizontal: 30,
-  },
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
   },
   container: {
     backgroundColor: colors.dark,

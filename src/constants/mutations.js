@@ -35,7 +35,7 @@ const CREATE_JAR = gql`
       }
     }
   }
-`
+`;
 
 const CREATE_JAR_MEMBERSHIP = gql`
   mutation CreateJarMembership($input: CreateJarMembershipInput!) {
@@ -56,10 +56,6 @@ const CREATE_JAR_MEMBERSHIP = gql`
       }
     }
   }
-`
+`;
 
-export {
-  CREATE_USER,
-  CREATE_JAR,
-  CREATE_JAR_MEMBERSHIP
-};
+export { CREATE_USER, CREATE_JAR, CREATE_JAR_MEMBERSHIP };

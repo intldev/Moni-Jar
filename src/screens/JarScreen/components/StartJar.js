@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { View, StyleSheet, StatusBar, ScrollView } from "react-native";
 import { StackActions, useNavigation } from "@react-navigation/native";
 
@@ -42,12 +42,13 @@ export default function StartJar() {
     ...initialData,
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [id, setId] = useState(cuid());
+  const id = useRef(cuid());
   const [isValidationFired, setIsValidationFired] = useState(false);
 
   useEffect(() => {
     if (isValidationFired) validate();
-  }, [data]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]); // FIXME: do we need this lint rule exception?
 
   useEffect(() => {
     setIsLoading(false);
@@ -60,7 +61,7 @@ export default function StartJar() {
     } else if (error) {
       showError();
     }
-  }, [response, error]);
+  }, [navigation, response, error]);
 
   useEffect(() => {
     if (responseJar?.createJar) {
@@ -69,7 +70,7 @@ export default function StartJar() {
           input: {
             jarMembership: {
               isAdmin: true,
-              jarId: id,
+              jarId: id.current,
               userId: auth()?.currentUser?.uid,
             },
           },
@@ -79,7 +80,7 @@ export default function StartJar() {
       showError();
       setIsLoading(false);
     }
-  }, [responseJar, errorJar]);
+  }, [createJarMembership, id, responseJar, errorJar]);
 
   function showError() {
     alert("Something went wrong while creating a Jar. Please try again later.");
@@ -115,7 +116,7 @@ export default function StartJar() {
         />
         <DatePicker
           label="When is your deadline?"
-          placeholder={moment().format('MM/DD/YYYY')}
+          placeholder={moment().format("MM/DD/YYYY")}
           datePlaceholderValue={data.date ? data?.date : ""}
           datePickerProps={{
             minimumDate: new Date(),
@@ -162,7 +163,7 @@ export default function StartJar() {
         variables: {
           input: {
             jar: {
-              id,
+              id: id.current,
               deadline: data?.date,
               savingsGoal: joinRemoveCurrency(data?.savingsGoal, "remove"),
               name: data?.name,

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../../cpts/base/Button";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import colors from "../../../constants/colors";
 import LinearGradient from "react-native-linear-gradient";
 
