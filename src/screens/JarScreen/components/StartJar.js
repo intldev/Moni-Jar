@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { View, StyleSheet, StatusBar, ScrollView } from "react-native";
 import { StackActions, useNavigation } from "@react-navigation/native";
+import moment from "moment";
 
 // constants
 import colors from "../../../constants/colors";
@@ -157,6 +158,7 @@ export default function StartJar() {
     if (!isLocal) setErrors(errors);
     return validated;
   }
+
   function submit() {
     const validated = validate();
     setIsValidationFired(true);
