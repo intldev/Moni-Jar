@@ -9,8 +9,6 @@ export default function UserDetails({ firstName }) {
       <Text style={styles.nameText}>Hi, {firstName}</Text>
       <View style={styles.usernameContainer}>
         <Text style={styles.usernameText}>@Rachel-Caires</Text>
-        <View style={styles.dot} />
-        <Text style={styles.usernameText}>XXX Buds</Text>
       </View>
     </View>
   );
@@ -29,14 +27,5 @@ const styles = StyleSheet.create({
   usernameContainer: {
     marginTop: 10,
     flexDirection: "row",
-  },
-  dot: {
-    height: 3,
-    width: 3,
-    backgroundColor: colors.light,
-    borderRadius: 1.5,
-    marginHorizontal: 15,
-    alignSelf: "center",
-    marginTop: 1,
   },
 });
