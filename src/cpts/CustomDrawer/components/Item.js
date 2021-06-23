@@ -1,17 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import colors from "../../../constants/colors";
 import { calibre13 } from "../../../constants/typography";
 
 export default function Item(props) {
-  const { title = "" } = props;
+  const { title = "", onPress } = props;
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        if (onPress) onPress();
+        else null;
+      }}
+      activeOpacity={0.7}
+    >
       <View style={styles.line} />
       <Text style={styles.text}>{title}</Text>
       <View style={styles.line} />
-    </View>
+    </TouchableOpacity>
   );
 }
 
