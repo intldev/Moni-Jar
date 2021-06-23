@@ -95,9 +95,9 @@ export default function ListItem(props) {
             {notification} <Text style={styles.bold}>{jarText}</Text>
           </Text>
           <Text style={styles.title}>{timeTypeText ? timeTypeText : "2h"}</Text>
-          {isProgress && (
+          {isProgress ? (
             <ProgressBar progress={progress} progressText={progressText} />
-          )}
+          ) : null}
           <View
             style={[
               styles.iconContainer,
@@ -106,11 +106,11 @@ export default function ListItem(props) {
               },
             ]}
           >
-            {daysLeft && (
+            {daysLeft ? (
               <Text style={styles.title}>
                 Days left: <Text style={styles.daysLeftValue}>{daysLeft}</Text>
               </Text>
-            )}
+            ) : null}
           </View>
         </View>
       </TouchableOpacity>
