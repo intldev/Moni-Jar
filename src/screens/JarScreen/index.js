@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   shortGradient: {
     width: "100%",
-    height: 9,
+    height: 3,
     position: "absolute",
     zIndex: 9999,
   },
