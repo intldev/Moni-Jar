@@ -5,5 +5,5 @@ export const calibre13 = {
 
 export const calibre24 = {
   fontSize: 24,
-  fontFamily: "Calibre-SemiBold",
+  fontFamily: "Calibre",
 };

@@ -26,7 +26,7 @@ import { USER_DETAILS } from "../../constants/queries";
 import { useQuery } from "@apollo/client";
 
 export default function CustomDrawerContent(props) {
-  const [isLogoutActive, setIsLogoutActive] = useState(true);
+  const [isLogoutActive, setIsLogoutActive] = useState(false);
   const { client, data } = useQuery(USER_DETAILS);
 
   const listItems = [
@@ -73,7 +73,11 @@ export default function CustomDrawerContent(props) {
         <UserDetails firstName={firstName} />
         <Item title={isLogoutActive ? "" : `${totalJars} Jars Active`} />
         {isLogoutActive ? (
-          <Logout client={client} setIsLogoutActive={setIsLogoutActive} />
+          <Logout
+            client={client}
+            setIsLogoutActive={setIsLogoutActive}
+            navigation={props.navigation}
+          />
         ) : (
           listItems?.map((item, index) => {
             return (

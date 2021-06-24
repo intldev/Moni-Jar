@@ -41,5 +41,6 @@ const styles = StyleSheet.create({
   },
   largeText: {
     ...calibre24,
+    textTransform: "none",
   },
 });

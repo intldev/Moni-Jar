@@ -10,6 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Logout(props) {
   const { client, setIsLogoutActive } = props;
+
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -23,6 +24,8 @@ export default function Logout(props) {
             client
               .clearStore()
               .then(() => {
+                setIsLogoutActive(false);
+                props.navigation.closeDrawer();
                 logout(navigation);
               })
               .catch(() => {
@@ -31,7 +34,7 @@ export default function Logout(props) {
           }}
         />
         <ListItem
-          title="Cacel"
+          title="Cancel"
           image={CancelImage}
           size="large"
           onPress={() => {
