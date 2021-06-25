@@ -65,17 +65,6 @@ export default function HomeScreen() {
             paddingVertical: 20,
           }}
         />
-        {data?.length > 0 ? (
-          <LinearGradient
-            colors={["#2EC4FF00", colors.primary]}
-            style={[
-              styles.shortGradient,
-              {
-                bottom: 0,
-              },
-            ]}
-          />
-        ) : null}
       </View>
       <Footer />
     </View>
