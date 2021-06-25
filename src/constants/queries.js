@@ -47,3 +47,18 @@ export const JAR_MEMBERSHIPS = gql`
     }
   }
 `;
+
+export const SEARCH_USERS = gql`
+  query SearchUsers($input: String!) {
+    searchUsers(search: $input) {
+      totalCount
+      nodes {
+        firstName
+        lastName
+        phone
+        userName
+        id
+      }
+    }
+  }
+`;
