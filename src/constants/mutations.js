@@ -44,6 +44,15 @@ const CREATE_JAR_MEMBERSHIP = gql`
         savingsGoal
         deadline
         name
+        jarMembershipsByJarId {
+          nodes {
+            user {
+              firstName
+              lastName
+              id
+            }
+          }
+        }
       }
       jarMembership {
         isAdmin

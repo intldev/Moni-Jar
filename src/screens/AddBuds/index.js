@@ -8,10 +8,13 @@ import {
 } from "react-native";
 import { useDebounce } from "use-debounce";
 import colors from "../../constants/colors";
+import { StackActions, useNavigation } from "@react-navigation/native";
 
 // graphql
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_USERS } from "../../constants/queries";
+import { CREATE_JAR_MEMBERSHIP } from "../../constants/mutations";
+import { useMutation } from "@apollo/client";
 
 // components
 import TextField from "../../cpts/base/TextField";
@@ -19,6 +22,7 @@ import Bud from "./components/Bud";
 import LoadingIndicator from "../../cpts/base/LoadingIndicator";
 import HeaderBud from "./components/HeaderBud";
 import Button from "../../cpts/base/Button";
+import { useRoute } from "@react-navigation/native";
 
 const avtarColors = {
   0: colors.primary,
@@ -36,8 +40,16 @@ const selectedUsersRow1 = [0, 1, 2, 3, 4];
 const selectedUsersRow2 = [5, 6, 7, 8];
 
 export default function AddBuds() {
+  const navigation = useNavigation();
+
+  const route = useRoute();
+
   const scrollRef = useRef(null);
   const [searchUser, { data, loading }] = useLazyQuery(SEARCH_USERS);
+  const [
+    createJarMembership,
+    { data: response, loading: createMembershipLoading, error },
+  ] = useMutation(CREATE_JAR_MEMBERSHIP);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedUsers, setSelectedUsers] = useState([]);
@@ -58,6 +70,27 @@ export default function AddBuds() {
     }
   }, [value, searchUser]);
 
+  useEffect(() => {
+    console.log(
+      response?.createJarMembership?.jar?.jarMembershipsByJarId?.nodes[0],
+    );
+    if (
+      response &&
+      response?.createJarMembership?.jar?.jarMembershipsByJarId?.nodes?.findIndex(
+        ele => ele?.user?.id === selectedUsers[selectedUsers.length - 1].id,
+      ) !== -1
+    ) {
+      navigation.dispatch(
+        StackActions.replace("JarDetail", {
+          data: response.createJarMembership,
+        }),
+      );
+    }
+  }, [response, selectedUsers, navigation]);
+
+  useEffect(() => {
+    console.log(error, "error");
+  }, [error]);
   return (
     <>
       <View style={[styles.container]}>
@@ -139,13 +172,15 @@ export default function AddBuds() {
                   key={index}
                   style={styles.budContainer}
                   onPress={() => {
-                    setSelectedUsers([...selectedUsers, { ...user }]);
-                    setSearchQuery("");
-                    scrollRef?.current?.scrollTo({
-                      x: 0,
-                      y: 0,
-                      animated: true,
-                    });
+                    if (selectedUsers?.length < 9) {
+                      setSelectedUsers([...selectedUsers, { ...user }]);
+                      setSearchQuery("");
+                      scrollRef?.current?.scrollTo({
+                        x: 0,
+                        y: 0,
+                        animated: true,
+                      });
+                    }
                   }}
                 >
                   <Bud title={user?.firstName[0] + user?.lastName[0]} />
@@ -176,10 +211,35 @@ export default function AddBuds() {
           backgroundColor: colors.dark,
         }}
       >
-        <Button title="ADD BUDS" containerStyles={styles.button} />
+        <Button
+          onPress={submit}
+          title="ADD BUDS"
+          containerStyles={styles.button}
+          isLoading={createMembershipLoading}
+        />
       </View>
     </>
   );
+  async function submit() {
+    for (const user of selectedUsers) {
+      try {
+        await createJarMembership({
+          variables: {
+            input: {
+              jarMembership: {
+                isAdmin: false,
+                jarId: route?.params?.jarId,
+                userId: user?.id,
+              },
+            },
+          },
+        });
+      } catch (error) {
+        console.log(error);
+        // error
+      }
+    }
+  }
 }
 
 const styles = StyleSheet.create({

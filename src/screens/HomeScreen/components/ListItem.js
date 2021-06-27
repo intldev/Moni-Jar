@@ -35,6 +35,10 @@ export default function ListItem(props) {
     4: colors.progressBar.completed,
     5: colors.progressBar.incomplete,
     6: colors.blue,
+    7: colors.fbBlue,
+    8: colors.primary,
+    9: colors.progressBar.incomplete,
+    10: colors.blue,
   };
 
   return (
@@ -151,6 +155,26 @@ export default function ListItem(props) {
       styles = {
         left: 17,
         top: 18,
+      };
+    } else if (index === 7) {
+      styles = {
+        left: 50,
+        top: 18,
+      };
+    } else if (index === 8) {
+      styles = {
+        left: 59,
+        top: 33,
+      };
+    } else if (index === 9) {
+      styles = {
+        left: 9,
+        top: 33,
+      };
+    } else if (index === 10) {
+      styles = {
+        left: 26,
+        top: 61,
       };
     }
     return styles;
