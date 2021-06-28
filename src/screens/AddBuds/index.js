@@ -71,9 +71,6 @@ export default function AddBuds() {
   }, [value, searchUser]);
 
   useEffect(() => {
-    console.log(
-      response?.createJarMembership?.jar?.jarMembershipsByJarId?.nodes[0],
-    );
     if (
       response &&
       response?.createJarMembership?.jar?.jarMembershipsByJarId?.nodes?.findIndex(
