@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 
 // constants
 import colors from "../../constants/colors";
-import showAlert from "../../constants/utils/showAlert";
 
 // components
 import UserDetails from "./components/UserDetails";
 import Item from "./components/Item";
 import ListItem from "./components/ListItem";
+import Logout from "./components/Logout";
 
 // images
 import Search from "../../assets/images/search.png";
@@ -20,13 +20,13 @@ import Rewards from "../../assets/images/rewards.png";
 import Settings from "../../assets/images/settings.png";
 import IncompleteTransfers from "../../assets/images/incompleteTransfers.png";
 import GetHelp from "../../assets/images/getHelp.png";
-import { logout } from "../../constants/utils/auth";
 
 // graphql
 import { USER_DETAILS } from "../../constants/queries";
 import { useQuery } from "@apollo/client";
 
 export default function CustomDrawerContent(props) {
+  const [isLogoutActive, setIsLogoutActive] = useState(false);
   const { client, data } = useQuery(USER_DETAILS);
 
   const listItems = [
@@ -57,16 +57,6 @@ export default function CustomDrawerContent(props) {
     {
       title: "Settings",
       image: Settings,
-      onPress: () => {
-        client
-          .clearStore()
-          .then(() => {
-            logout(props.navigation);
-          })
-          .catch(() => {
-            showAlert("tryAgain");
-          });
-      },
     },
     {
       title: "Get Help",
@@ -81,18 +71,31 @@ export default function CustomDrawerContent(props) {
     <DrawerContentScrollView {...props} style={styles.drawerScrollView}>
       <View style={styles.container}>
         <UserDetails firstName={firstName} />
-        <Item title={`${totalJars} Jars Active`} />
-        {listItems?.map((item, index) => {
-          return (
-            <ListItem
-              title={item?.title}
-              key={index}
-              image={item.image}
-              onPress={item.onPress}
-            />
-          );
-        })}
-        <Item title="Make a transfer" />
+        <Item title={isLogoutActive ? "" : `${totalJars} Jars Active`} />
+        {isLogoutActive ? (
+          <Logout
+            client={client}
+            setIsLogoutActive={setIsLogoutActive}
+            navigation={props.navigation}
+          />
+        ) : (
+          listItems?.map((item, index) => {
+            return (
+              <ListItem
+                title={item?.title}
+                key={index}
+                image={item.image}
+                onPress={item.onPress}
+              />
+            );
+          })
+        )}
+        <Item
+          title={isLogoutActive ? "" : "Log out"}
+          onPress={() => {
+            setIsLogoutActive(true);
+          }}
+        />
       </View>
     </DrawerContentScrollView>
   );
