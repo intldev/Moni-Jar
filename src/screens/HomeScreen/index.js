@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 // constants
 import colors from "../../constants/colors";
@@ -50,6 +51,12 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
+        {data?.length > 0 ? (
+          <LinearGradient
+            colors={[colors.blue, "#2EC4FF00"]}
+            style={[styles.shortGradient]}
+          />
+        ) : null}
         <FlatList
           data={data}
           keyExtractor={(item, index) => index.toString()}
@@ -71,5 +78,11 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 3,
+  },
+  shortGradient: {
+    width: "100%",
+    height: 3,
+    position: "absolute",
+    zIndex: 9999,
   },
 });

@@ -9,6 +9,7 @@ import {
 import { useNavigation } from "@react-navigation/core";
 import colors from "../../constants/colors";
 import auth from "@react-native-firebase/auth";
+import LinearGradient from "react-native-linear-gradient";
 
 // components
 import PlusIcon from "../../assets/images/plusIcon.png";
@@ -89,6 +90,12 @@ export default function JarScreen() {
       ) : (
         <>
           <View style={styles.listContainer}>
+            {memberships?.length > 0 ? (
+              <LinearGradient
+                colors={[colors.blue, "#2EC4FF00"]}
+                style={[styles.shortGradient]}
+              />
+            ) : null}
             <FlatList
               data={memberships}
               keyExtractor={(item, index) => index.toString()}
@@ -97,8 +104,23 @@ export default function JarScreen() {
                 paddingVertical: 20,
               }}
             />
+            {memberships?.length > 0 ? (
+              <LinearGradient
+                colors={["#2EC4FF00", colors.blue]}
+                style={[
+                  styles.shortGradient,
+                  {
+                    bottom: 0,
+                  },
+                ]}
+              />
+            ) : null}
           </View>
           <View style={styles.footerContainer}>
+            <LinearGradient
+              colors={["transparent", colors.secondary.darkGradient]}
+              style={[styles.linearGradient]}
+            />
             <TouchableOpacity
               style={styles.plusIconContainer}
               onPress={() => {
@@ -146,5 +168,17 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     height: "60%",
     alignSelf: "center",
+  },
+  linearGradient: {
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    bottom: 0,
+  },
+  shortGradient: {
+    width: "100%",
+    height: 3,
+    position: "absolute",
+    zIndex: 9999,
   },
 });
