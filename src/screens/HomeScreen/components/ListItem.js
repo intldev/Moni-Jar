@@ -125,56 +125,54 @@ export default function ListItem(props) {
     let styles;
     if (index === 0) {
       styles = {
-        left: 25,
+        left: 25, // 2nd row 2
       };
     } else if (index === 1) {
       styles = {
-        left: 42,
+        left: 42, // 2nd row 3
       };
     } else if (index === 2) {
       styles = {
-        left: 34,
+        left: 33.5, // 1st row 2
         top: 18,
       };
     } else if (index === 3) {
       styles = {
-        left: 34,
+        left: 33.5, // 3rd row 2
         top: 47,
       };
     } else if (index === 4) {
       styles = {
-        left: 17,
+        left: 16.5, // 3rd row 1
         top: 47,
       };
     } else if (index === 5) {
       styles = {
-        left: 51,
-        top: 48,
+        left: 50.5, // 3rd row 3
+        top: 47,
       };
     } else if (index === 6) {
       styles = {
-        left: 17,
-        top: 18,
+        left: 16.5,
+        top: 18, // 1st row 1
       };
     } else if (index === 7) {
       styles = {
-        left: 50,
-        top: 18,
+        left: 50.5,
+        top: 18, // 1st row 3
       };
     } else if (index === 8) {
       styles = {
-        left: 59,
-        top: 33,
+        left: 59, // 2nd row 4
       };
     } else if (index === 9) {
       styles = {
-        left: 9,
-        top: 33,
+        left: 8, // 2nd row 1
       };
     } else if (index === 10) {
       styles = {
-        left: 26,
-        top: 61,
+        left: 25, // 4rth row 1
+        top: 61.5,
       };
     }
     return styles;
