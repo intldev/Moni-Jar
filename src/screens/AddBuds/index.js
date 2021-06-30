@@ -218,23 +218,25 @@ export default function AddBuds() {
     </>
   );
   async function submit() {
-    for (const user of selectedUsers) {
-      try {
-        await createJarMembership({
-          variables: {
-            input: {
-              jarMembership: {
-                isAdmin: false,
-                jarId: route?.params?.jarId,
-                userId: user?.id,
+    try {
+      await Promise.all(
+        selectedUsers.map(user => {
+          createJarMembership({
+            variables: {
+              input: {
+                jarMembership: {
+                  isAdmin: false,
+                  jarId: route?.params?.jarId,
+                  userId: user?.id,
+                },
               },
             },
-          },
-        });
-      } catch (error) {
-        console.log(error);
-        // error
-      }
+          });
+        }),
+      );
+    } catch (error) {
+      console.log(error);
+      // error
     }
   }
 }
