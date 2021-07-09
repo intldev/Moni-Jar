@@ -10,25 +10,29 @@ import colors from "../../../constants/colors";
 import Hexagon from "../../../cpts/base/Hexagon";
 import moment from "moment";
 
-const persons = ["JULIA", "ARMONDO", "TAYLOR", "RACHEL", "JULIA", "SOMEONE"];
-
 const singleHeight = 60;
-const numberOfPersons = getPersonsLength();
-const boxHeight = numberOfPersons * 40;
 const borderWidth = 8;
 const circleHeight = 232;
 
-function getPersonsLength() {
-  if (persons.length > 6) {
-    return persons.length;
-  } else if (persons.length > 2) {
-    return persons.length - 1;
-  } else return persons.length;
-}
 export default function JarDetail() {
   const route = useRoute();
 
   const data = route?.params?.data || {};
+
+  const nodes = data?.jar?.jarMembershipsByJarId?.nodes || [];
+
+  function getPersonsLength() {
+    if (nodes.length > 9) {
+      return nodes.length + 1;
+    } else if (nodes.length > 6) {
+      return nodes.length;
+    } else if (nodes.length > 2) {
+      return nodes.length - 1;
+    } else return nodes.length;
+  }
+  const numberOfPersons = getPersonsLength();
+  const boxHeight = numberOfPersons * 40;
+
   return (
     <View style={styles.parentContainer}>
       <ScrollView
@@ -72,7 +76,14 @@ export default function JarDetail() {
               </View>
             </View>
             <View style={[styles.semiCricle, styles.semiUp]} />
-            <View style={styles.drum}>
+            <View
+              style={[
+                styles.drum,
+                {
+                  height: boxHeight,
+                },
+              ]}
+            >
               <View
                 style={{
                   height: boxHeight + circleHeight,
@@ -80,32 +91,34 @@ export default function JarDetail() {
                   justifyContent: "center",
                 }}
               >
-                {persons.map((person, index) => {
+                {nodes.map((person, index) => {
                   return (
                     <View
                       style={[
                         styles.row,
                         {
                           borderBottomWidth:
-                            persons.length - 1 === index ? 0 : borderWidth,
+                            nodes.length - 1 === index ? 0 : borderWidth,
                           backgroundColor:
-                            persons.length === 1
+                            nodes.length === 1
                               ? colors.secondary.navigator
                               : "transparent",
-                          width: persons.length === 1 ? "98%" : "100%",
-                          left: persons.length === 1 ? "1%" : "0%",
+                          width: nodes.length === 1 ? "98%" : "100%",
+                          left: nodes.length === 1 ? "1%" : "0%",
                         },
                       ]}
                       key={index}
                     >
-                      {persons.length === 1 ? (
+                      {nodes.length === 1 ? (
                         <View style={styles.hiddenContainer} />
                       ) : null}
-                      {(persons.length === 2 || persons.length === 3) &&
-                      persons.length - 1 === index ? (
+                      {(nodes.length === 2 || nodes.length === 3) &&
+                      nodes.length - 1 === index ? (
                         <View style={styles.hiddenContainer2} />
                       ) : null}
-                      <Text style={styles.personName}>{person}</Text>
+                      <Text style={styles.personName}>
+                        {person?.user?.firstName}
+                      </Text>
                     </View>
                   );
                 })}
@@ -182,7 +195,6 @@ const styles = StyleSheet.create({
     color: colors.secondary.navigator,
   },
   drum: {
-    height: boxHeight,
     width: circleHeight,
     borderWidth: borderWidth,
     borderRadius: 0,
@@ -235,6 +247,7 @@ const styles = StyleSheet.create({
     fontFamily: "Calibre-SemiBold",
     letterSpacing: 6,
     zIndex: 2,
+    textTransform: "capitalize",
   },
   amountContainer: {
     flexDirection: "row",

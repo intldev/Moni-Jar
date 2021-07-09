@@ -11,6 +11,7 @@ import SignupEmail from "../screens/Auth/components/SignupEmail";
 import SigninEmail from "../screens/Auth/components/SigninEmail";
 import StartJar from "../screens/JarScreen/components/StartJar";
 import JarDetail from "../screens/JarScreen/components/JarDetail";
+import AddBuds from "../screens/AddBuds";
 import useAuth from "../utils/hooks/useAuth";
 
 import { ApolloProvider } from "@apollo/client";
@@ -74,6 +75,12 @@ const AppNavigator = () => {
             name="JarDetail"
             component={JarDetail}
             options={{ title: "" }}
+          />
+          <Stack.Screen
+            title="Add Buds"
+            name="AddBuds"
+            component={AddBuds}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>

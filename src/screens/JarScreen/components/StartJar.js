@@ -44,6 +44,7 @@ export default function StartJar() {
   const [isLoading, setIsLoading] = useState(false);
   const id = useRef(cuid());
   const [isValidationFired, setIsValidationFired] = useState(false);
+  const [tempJarId, setTempJarId] = useState("");
 
   useEffect(() => {
     if (isValidationFired) validate();
@@ -54,17 +55,19 @@ export default function StartJar() {
     setIsLoading(false);
     if (response?.createJarMembership) {
       navigation.dispatch(
-        StackActions.replace("JarDetail", {
+        StackActions.replace("AddBuds", {
           data: response?.createJarMembership,
+          jarId: tempJarId,
         }),
       );
     } else if (error) {
       showError();
     }
-  }, [navigation, response, error]);
+  }, [navigation, response, error, tempJarId]);
 
   useEffect(() => {
     if (responseJar?.createJar) {
+      setTempJarId(id.current);
       createJarMembership({
         variables: {
           input: {
